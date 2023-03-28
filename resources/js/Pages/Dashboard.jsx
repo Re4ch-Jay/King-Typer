@@ -1,21 +1,78 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export default function Dashboard({ auth }) {
-    return (
-        <AuthenticatedLayout
-            user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>}
-        >
-            <Head title="Dashboard" />
+import GeneratedWords from '@/Components/GeneratedWords';
+import RestartButton from "@/components/RestartButton";
+import Results from "@/components/Results";
+import TypingMode from "@/components/TypingMode";
+import UserTypings from '@/Components/UserTypings';
+import useEngine from '@/hooks/useEngine';
+import { calculateAccuracyPercentage } from "@/utils/helpers";
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                    </div>
-                </div>
-            </div>
-        </AuthenticatedLayout>
+export default function Dashboard({ auth }) {
+    const { words, typed, timeLeft, errors, state, restart, totalTyped, handleSeconds, handleNumberOfWords, handleWordTypes, wordType, numberOfWords, countDownSeconds } =
+    useEngine();
+
+  return (
+    <AuthenticatedLayout user={auth.user}>
+    <main>
+    <section>
+      {state !== "finish" && (
+        <>
+          <TypingMode handleSeconds={handleSeconds} handleNumberOfWords={handleNumberOfWords} handleWordTypes={handleWordTypes} />
+          
+            <WordType wordType={wordType}/>
+            <NumberOfWords numberOfWords={numberOfWords} />
+            <CountdownTimer timeLeft={timeLeft} />
+     
+          <WordsContainer>
+            <GeneratedWords key={words} words={words} />
+            <UserTypings
+              className="absolute inset-0"
+              words={words}
+              userInput={typed}
+            />
+          </WordsContainer>
+        </>
+      ) }
+      
+      <Results
+        className="mt-10"
+        state={state}
+        errors={errors}
+        accuracyPercentage={calculateAccuracyPercentage(errors, totalTyped)}
+        total={totalTyped}
+        wordType={wordType}
+        numberOfWords={numberOfWords}
+        countDownSeconds={countDownSeconds}
+      />
+      
+      <RestartButton
+            className={"mx-auto mt-10 text-slate-500"}
+            onRestart={restart}
+      />
+      </section>
+    </main>
+    </AuthenticatedLayout>
+  );
+};
+
+const WordsContainer = ({ children }) => {
+    return (
+      <div className="relative text-3xl max-w-7xl leading-relaxed break-all mt-3">
+        {children}
+      </div>
     );
-}
+  };
+  
+  const CountdownTimer = ({ timeLeft }) => {
+    return <h2 className="text-primary-400 text-xl font-medium">Time: {timeLeft}s</h2>;
+  };
+  
+  const WordType = ({ wordType }) => {
+    return <h2 className="text-primary-400 text-xl font-medium">Word Type: {wordType}</h2>;
+  };
+  
+  const NumberOfWords = ({ numberOfWords }) => {
+    return <h2 className="text-primary-400 text-xl font-medium">{numberOfWords} words</h2>;
+  };
