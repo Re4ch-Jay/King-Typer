@@ -2,17 +2,36 @@ import { motion } from "framer-motion";
 import { formatPercentage, calculateWPM } from "../utils/helpers";
 import html2canvas from 'html2canvas';
 import { useState, useRef } from "react";
+
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import InputError from '@/Components/InputError';
+import PrimaryButton from '@/Components/PrimaryButton';
+import { useForm, Head, Link, usePage } from '@inertiajs/react';
+
 const Results = ({
   state,
-  errors,
+  typeErrors,
   accuracyPercentage,
   total,
   className = "",
   numberOfWords,
   wordType,
-  countDownSeconds
+  countDownSeconds,
+  
 }) => {
+  
+  const {auth} = usePage().props;
+
+  const { data, setData, post, processing, reset, errors } = useForm({
+    wpm: '',
+    accuracy: '',
+    error: '',
+    typed: '',
+    time: '',
+  });
+
   const [screenshot, setScreenshot] = useState(null);
+  const [buttonSave, setButtonSave] = useState(true);
   const appRef = useRef(null);
 
 
@@ -20,14 +39,21 @@ const Results = ({
     return null;
   }
   
-  if(state === 'finish') {
-    console.log('save finish test to mysql')
-  }
 
   const initial = { opacity: 0 };
   const animate = { opacity: 1 };
-  
 
+  const submit = (e) => {
+      e.preventDefault();
+      data.wpm = calculateWPM(total, countDownSeconds).toFixed(0);
+      data.accuracy = formatPercentage(accuracyPercentage);
+      data.error = typeErrors;
+      data.time = countDownSeconds;
+      data.typed = total;
+      post(route('typing.store'), { onSuccess: () => reset() });
+      setButtonSave(false);
+  };
+    
   const takeScreenshot = () => {
     html2canvas(appRef.current).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
@@ -40,7 +66,7 @@ const Results = ({
   };
 
   return (
-    
+  
     <motion.ul
       initial={initial}
       animate={animate}
@@ -69,7 +95,7 @@ const Results = ({
         transition={{ duration: 0.3, delay: 1 }}
         className="text-red-500"
       >
-        Errors: {errors}
+        {/* Errors: {typeErrors} */}
       </motion.li>
       <motion.li
         initial={initial}
@@ -83,7 +109,7 @@ const Results = ({
         animate={animate}
         transition={{ duration: 0.3, delay: 1.8 }}
       >
-        WPM: {calculateWPM(total, numberOfWords)}
+        WPM: {calculateWPM(total, countDownSeconds).toFixed(0)}
       </motion.li>
       <motion.li
         initial={initial}
@@ -99,14 +125,26 @@ const Results = ({
       >
         Time: {countDownSeconds}s
       </motion.li>
-      <motion.li
-        initial={initial}
-        animate={animate}
-        transition={{ duration: 0.3, delay: 3.4 }}
-        className="text-slate-400 text-lg cursor-pointer hover:underline"
-      >
-        Sign In To Save Result
-      </motion.li>
+      {!auth.user && (
+        <motion.a
+          href="/register"
+          initial={initial}
+          animate={animate}
+          transition={{ duration: 0.3, delay: 3.4 }}
+          className="text-slate-400 text-lg cursor-pointer hover:underline"
+        >
+          Sign In To Save Result
+        </motion.a>
+      )}
+      
+      {buttonSave ? (
+        <form onSubmit={submit}>
+            <PrimaryButton className="mt-4" disabled={processing}>Save</PrimaryButton>
+        </form>
+      ) : (
+        <div className="text-lg">Saved</div>
+      )}
+
       <motion.li
         initial={initial}
         animate={animate}
@@ -116,7 +154,6 @@ const Results = ({
         <button onClick={takeScreenshot}>Take Screenshot</button>
       </motion.li>
     </motion.ul>
-
   );
 };
 

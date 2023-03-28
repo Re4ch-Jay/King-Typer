@@ -5,7 +5,7 @@ import useTypings from "./useTypings";
 import useWords from "./useWords";
 
 const NUMBER_OF_WORDS = 30;
-const COUNTDOWN_SECONDS = 30;
+const COUNTDOWN_SECONDS = 3;
 const WORD_TYPE = 'words';
 
 const useEngine = () => {

@@ -15,6 +15,7 @@ export default function Dashboard({ auth }) {
 
   return (
     <AuthenticatedLayout user={auth.user}>
+      <Head title='Typing' />
     <main>
     <section>
       {state !== "finish" && (
@@ -39,11 +40,12 @@ export default function Dashboard({ auth }) {
       <Results
         className="mt-10"
         state={state}
-        errors={errors}
+        typeErrors={errors}
         accuracyPercentage={calculateAccuracyPercentage(errors, totalTyped)}
         total={totalTyped}
         wordType={wordType}
         numberOfWords={numberOfWords}
+        auth={auth}
         countDownSeconds={countDownSeconds}
       />
       
