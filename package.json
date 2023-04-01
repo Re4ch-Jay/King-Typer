@@ -20,9 +20,10 @@
     },
     "dependencies": {
         "@faker-js/faker": "^7.6.0",
-        "react-icons": "^4.8.0",
         "classnames": "^2.3.2",
+        "dayjs": "^1.11.7",
         "framer-motion": "^10.9.1",
-        "html2canvas": "^1.4.1"
+        "html2canvas": "^1.4.1",
+        "react-icons": "^4.8.0"
     }
 }

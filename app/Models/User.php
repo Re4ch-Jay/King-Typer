@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\TypingTest;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -45,5 +46,9 @@ class User extends Authenticatable
 
     public function tests() {
         return $this->hasMany(TypingTest::class);
+    }
+    public function chirps() //: HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }
