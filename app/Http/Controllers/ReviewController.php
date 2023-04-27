@@ -13,16 +13,12 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      */
-//    public function index()
+
     public function index()
     {
-        //return response('Hello, World!');
-        //        return response()->json([
-//            "message"=> "Laravel bootcamp"
-//        ]);
+
         return Inertia::render('Reviews/Index', [
-            //
-            'reviews' => Review::with('user:id,name')->latest()->get(),
+            'message' => Review::with('user:id,name')->latest()->get(),
         ]);
     }
 
@@ -37,7 +33,7 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-//    public function store(Request $request)
+
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -85,7 +81,7 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-//    public function destroy(Review $review)
+    
     public function destroy(Review $review): RedirectResponse
     {
         $this->authorize('delete', $review);

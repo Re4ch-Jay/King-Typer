@@ -43,17 +43,16 @@ export default function Review({ review }) {
                                 </button>
                             </Dropdown.Trigger>
                             <Dropdown.Content>
-                                <button className="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out" onClick={() => setEditing(true)}>
+                                <button className="block w-full px-4 py-2 text-left text-sm leading-5 text-white hover:bg-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out" onClick={() => setEditing(true)}>
                                     Edit
                                 </button>
-                                <Dropdown.Link as="button" href={route('chirps.destroy', chirp.id)} method="delete">
+                                <Dropdown.Link as="button" href={route('reviews.destroy', review.id)} method="delete">
                                     Delete
                                 </Dropdown.Link>
                             </Dropdown.Content>
                         </Dropdown>
                     }
                 </div>
-                <p className="mt-4 text-lg text-gray-900">{review.message}</p>
                 {editing
                     ? <form onSubmit={submit}>
                         <textarea value={data.message} onChange={e => setData('message', e.target.value)} className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>

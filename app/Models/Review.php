@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Events\ReviewCreated;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Review extends Model
 {
@@ -13,10 +14,8 @@ class Review extends Model
     protected $fillable = [
         'message',
     ];
-    protected $dispatchesEvents = [
-        'created' => ReviewCreated::class,
-    ];
-    public function user() //: BelongsTo
+   
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

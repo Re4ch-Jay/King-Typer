@@ -1,12 +1,10 @@
-import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head } from '@inertiajs/react';
-import Chirp from '@/Components/Review';
+import Review from '@/Components/Review';
 
-// export default function Index({ auth }) {
-export default function Index({ auth, reviews }) {
+export default function Index({ auth, message }) {
     const { data, setData, post, processing, reset, errors } = useForm({
         message: '',
     });
@@ -17,7 +15,7 @@ export default function Index({ auth, reviews }) {
     };
 
     return (
-        <AuthenticatedLayout auth={auth}>
+        <AuthenticatedLayout user={auth.user}>
             <Head title="Reviews" />
 
             <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
@@ -33,7 +31,7 @@ export default function Index({ auth, reviews }) {
                 </form>
 
                 <div className="mt-6 bg-white shadow-sm rounded-lg divide-y">
-                    {reviews.map(review =>
+                    {message.map(review =>
                         <Review key={review.id} review={review} />
                     )}
                 </div>
