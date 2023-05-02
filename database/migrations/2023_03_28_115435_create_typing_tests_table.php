@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('typing_tests', function (Blueprint $table) {
             $table->id();
             $table->string('wpm');
-            $table->string('accuracy');  
-            $table->string('error');    
-            $table->string('typed');      
-            $table->string('time');    
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();      
+            $table->string('accuracy');
+            $table->string('error');
+            $table->string('typed');
+            $table->string('time');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
