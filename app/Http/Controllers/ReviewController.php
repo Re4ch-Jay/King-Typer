@@ -6,14 +6,12 @@ use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
 
 class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
     public function index()
     {
 
@@ -33,7 +31,6 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -81,7 +78,6 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    
     public function destroy(Review $review): RedirectResponse
     {
         $this->authorize('delete', $review);

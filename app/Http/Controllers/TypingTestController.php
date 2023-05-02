@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use App\Models\TypingTest;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class TypingTestController extends Controller
 {
@@ -30,7 +28,7 @@ class TypingTestController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $validated = $request->validate([
             'wpm' => 'required',
             'accuracy' => 'required',
