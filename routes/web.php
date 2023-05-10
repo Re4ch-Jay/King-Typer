@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InfoController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -30,6 +31,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/info', [InfoController::class, 'index'])->name('info.index');
 
 Route::post('/typing', [TypingTestController::class, 'store'])->middleware(['auth', 'verified'])->name('typing.store');
 
