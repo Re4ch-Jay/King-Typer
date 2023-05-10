@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LeaderboardController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -35,6 +36,8 @@ Route::get('/dashboard', function () {
 Route::get('/info', [InfoController::class, 'index'])->name('info.index');
 
 Route::post('/typing', [TypingTestController::class, 'store'])->middleware(['auth', 'verified'])->name('typing.store');
+Route::get('/leaderboard/{time}', [LeaderboardController::class, 'index']);
+
 
 Route::resource('reviews', ReviewController::class)
     ->only(['index', 'store', 'update', 'destroy'])
