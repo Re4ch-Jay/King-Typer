@@ -3,8 +3,7 @@ import { Head, Link } from '@inertiajs/react';
 import Leaderboard from '@/Components/Leaderboard';
 import Card from '@/Components/Card';
 
-export default function Index({ auth, leaderboardData }) {
-    console.log(window.location.href)
+export default function Index({ auth, leaderboardData, time }) {
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Leaderboard" />
@@ -22,6 +21,7 @@ export default function Index({ auth, leaderboardData }) {
                         60 Seconds
                     </Link>
                 </Card>
+                <h1 className="text-2xl text-primary-400 font-bold mb-10">Time {time} Seconds</h1>
                 <Leaderboard leaderboardData={leaderboardData} />
             </div>
         </AuthenticatedLayout>

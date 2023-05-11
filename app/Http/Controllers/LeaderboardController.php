@@ -38,6 +38,7 @@ class LeaderboardController extends Controller
 
         return Inertia::render('Leaderboard/Index', [
             'leaderboardData' => $leaderboardData,
+            'time' => $time,
         ]);
     }
 }
