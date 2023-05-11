@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\InfoController;
-use App\Http\Controllers\LeaderboardController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\MyStatsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TypingTestController;
+use App\Http\Controllers\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::post('/typing', [TypingTestController::class, 'store'])->middleware(['aut
 
 Route::get('/leaderboard/{time}', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
+Route::get('/mystats', [MyStatsController::class, 'index'])->name('mystats.index');
 
 Route::resource('reviews', ReviewController::class)
     ->only(['index', 'store', 'update', 'destroy'])
