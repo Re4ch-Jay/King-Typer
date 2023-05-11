@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LeaderboardController extends Controller
 {
+
     public function index($time)
     {
         $query = TypingTest::with('user')
@@ -40,6 +41,3 @@ class LeaderboardController extends Controller
         ]);
     }
 }
-
-
-

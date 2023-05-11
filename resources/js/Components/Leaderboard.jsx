@@ -2,7 +2,7 @@ import LeaderboardItem from '@/Components/LeaderboardItem';
 
 function Leaderboard({ leaderboardData }) {
     return (
-        <div className="mt-6 bg-white shadow-sm rounded-lg divide-y">
+        <div className="mt-6 bg-gray-700 shadow-sm rounded-lg divide-y divide-gray-200">
             {leaderboardData.map((item, index) => (
                 <LeaderboardItem
                     key={item.id}
