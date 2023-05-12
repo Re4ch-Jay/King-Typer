@@ -93,7 +93,7 @@ export default function Index({
                             <p>{test.error}</p>
                             <p>{test.typed}</p>
                             <p>{test.time}</p>
-                            <p>{dayjs(test.created_at).date()} days ago</p>
+                            <p>{dayjs().diff(dayjs(test.created_at), 'day')} days ago</p>
                         </Card>
                     ))}
                 </div>
