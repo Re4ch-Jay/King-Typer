@@ -10,7 +10,7 @@ export default function Index({ auth, leaderboardData, time }) {
 
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
                 <h1 className="text-2xl text-primary-400 font-bold mb-10">Leaderboard</h1>
-                <Card>
+                <Card className='mb-10'>
                     <Link href='/leaderboard/15' className='text-slate-500 hover:text-gray-800 cursor-pointer'>
                         15 Seconds
                     </Link>

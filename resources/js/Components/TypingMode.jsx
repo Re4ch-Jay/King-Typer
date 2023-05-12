@@ -18,7 +18,7 @@ const TypingMode = ({ handleSeconds, handleNumberOfWords, handleWordTypes }) => 
     const [number, setNumber] = useState(false)
 
     return (
-        <Card>
+        <Card className='mb-10'>
 
             {word ? (
                 <div onClick={() => { handleWordTypes('words'); setWord(true); setNumber(false); }} className="text-primary-500 hover:text-gray-800 cursor-pointer"><strong>Aa</strong> Words</div>

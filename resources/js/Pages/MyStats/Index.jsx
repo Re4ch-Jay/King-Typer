@@ -25,7 +25,7 @@ export default function Index({
 
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
                 <h1 className="text-2xl text-primary-400 font-bold mb-10">My Stats</h1>
-                <Card className="grid grid-cols-4 text-center">
+                <Card className="grid grid-cols-4 text-center mb-10">
                     <div className='grid grid-cols-2 gap-0'>
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div>
@@ -50,7 +50,7 @@ export default function Index({
                     </div>
                 </Card>
                 <div className='grid grid-cols-1 gap-4 text-center'>
-                    <Card className="grid grid-cols-4">
+                    <Card className="grid grid-cols-4 mb-10">
                         <div>
                             <p className='text-primary-400 font-bold'>Average WPM</p>
                             <p className='text-lg text-slate-400'>{average_wpm.toFixed(1)}</p>
@@ -75,7 +75,7 @@ export default function Index({
 
                 <div>
                     <h1 className='text-primary-400 mb-10 text-2xl font-bold'>Previous Test Stats</h1>
-                    <Card className='grid grid-cols-6 gap-2 text-center text-2xl text-primary-400'>
+                    <Card className='grid grid-cols-6 gap-2 text-center text-2xl text-primary-400 mb-10'>
                         <p>WPM</p>
                         <p>Accuracy</p>
                         <p>Error</p>
@@ -86,7 +86,7 @@ export default function Index({
                     {all_tests.map(test => (
                         <Card
                             key={test.id}
-                            className='grid grid-cols-6 gap-2 text-center text-lg text-slate-400'
+                            className='grid grid-cols-6 gap-2 text-center text-lg text-slate-400 mb-4'
                         >
                             <p>{test.wpm}</p>
                             <p>{test.accuracy}</p>
