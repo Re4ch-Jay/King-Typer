@@ -8,7 +8,7 @@ function LeaderboardItem({ rank, username, wpm, accuracy }) {
             </div>
             <div>
                 <span className="text-xl text-slate-100 font-bold mr-4">{wpm} WPM</span>
-                <span className="text-xl text-slate-100 font-bold">{accuracy}% Accuracy</span>
+                <span className="text-xl text-slate-100 font-bold">{accuracy} Accuracy</span>
             </div>
         </div>
     );
