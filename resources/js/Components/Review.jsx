@@ -31,7 +31,7 @@ export default function Review({ review }) {
                     <div>
                         <span className="text-gray-800">{review.user.name}</span>
                         <small className="ml-2 text-sm text-gray-600">{dayjs(review.created_at).fromNow()}</small>
-                        { review.created_at !== review.updated_at && <small className="text-sm text-gray-600"> &middot; edited</small>}
+                        {review.created_at !== review.updated_at && <small className="text-sm text-gray-600"> &middot; edited</small>}
                     </div>
                     {review.user.id === auth.user.id &&
                         <Dropdown>

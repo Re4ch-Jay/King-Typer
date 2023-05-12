@@ -28,7 +28,13 @@ class MyStatsController extends Controller
             'max_time' => $max_time,
             'max_typed' => $max_typed,
             'reviews' => $reviews,
+            'all_tests' => $this->allTests(),
         ]);
+    }
+
+    public function allTests()
+    {
+        return DB::table('typing_tests')->where('user_id', '=', $this->currentUser())->get();
     }
 
     public function currentUser()
