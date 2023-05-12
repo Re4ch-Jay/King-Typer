@@ -11,6 +11,11 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
         email: user.email,
+        bio: user.bio,
+        keyboard: user.keyboard,
+        twitter: user.twitter,
+        github: user.github,
+        website: user.website,
     });
 
     const submit = (e) => {
@@ -45,7 +50,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                     <InputError className="mt-2" message={errors.name} />
                 </div>
-
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -61,7 +65,82 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                     <InputError className="mt-2" message={errors.email} />
                 </div>
+                <div>
+                    <InputLabel htmlFor="bio" value="Bio" />
 
+                    <TextInput
+                        id="bio"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.bio}
+                        onChange={(e) => setData('bio', e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.bio} />
+                </div>
+                <div>
+                    <InputLabel htmlFor="keyboard" value="Keyboard" />
+
+                    <TextInput
+                        id="keyboard"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.keyboard}
+                        onChange={(e) => setData('keyboard', e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.keyboard} />
+                </div>
+                <div>
+                    <InputLabel htmlFor="twitter" value="Twitter Username" />
+
+                    <div className='flex justify-evenly items-center'>
+                        <p className='text-white'>https://twitter.com/</p>
+                        <TextInput
+                            id="twitter"
+                            type="text"
+                            className="mt-1 block w-full"
+                            value={data.twitter}
+                            onChange={(e) => setData('twitter', e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <InputError className="mt-2" message={errors.twitter} />
+                </div>
+                <div>
+                    <InputLabel htmlFor="github" value="Github Username" />
+
+                    <div className='flex justify-evenly items-center'>
+                        <p className='text-white'>https://github.com/</p>
+                        <TextInput
+                            id="github"
+                            type="text"
+                            className="mt-1 block w-full"
+                            value={data.github}
+                            onChange={(e) => setData('github', e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <InputError className="mt-2" message={errors.github} />
+                </div>
+                <div>
+                    <InputLabel htmlFor="website" value="Website" />
+
+                    <TextInput
+                        id="website"
+                        type="website"
+                        className="mt-1 block w-full p-2"
+                        value={data.website}
+                        onChange={(e) => setData('website', e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.website} />
+                </div>
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
                         <p className="text-sm mt-2 text-gray-800 dark:text-gray-200">
