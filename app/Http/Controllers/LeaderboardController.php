@@ -14,15 +14,15 @@ class LeaderboardController extends Controller
     public function index($time)
     {
         $query = TypingTest::with('user')
-            ->select('user_id', DB::raw('MAX(wpm) as max_wpm'), DB::raw('MAX(accuracy) as max_accuracy'))
+            ->select('user_id', DB::raw('MAX(accuracy) as max_accuracy'), DB::raw('MAX(wpm) as max_wpm'))
             ->groupBy('user_id');
 
         if ($time == 15 || $time == 30 || $time == 60) {
             $query->where('time', $time);
         }
 
-        $typingTests = $query->orderBy('max_wpm', 'desc')
-            ->orderBy('max_accuracy', 'desc')
+        $typingTests = $query->orderBy('max_accuracy', 'desc')
+            ->orderBy('max_wpm', 'desc')
             ->take(10)
             ->get();
 
