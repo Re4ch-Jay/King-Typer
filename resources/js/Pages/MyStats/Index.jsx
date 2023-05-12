@@ -30,45 +30,60 @@ export default function Index({
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div>
                             <p className='text-primary-400 font-bold'>{auth.user.name}</p>
-                            <p className='text-lg text-slate-400'>Joined {dayjs(auth.user.created_at).date()} days</p>
+                            <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(auth.user.created_at), 'day')} days</p>
                         </div>
                     </div>
 
                     <div>
                         <p className='text-primary-400 font-bold'>Test Completed</p>
-                        <p className='text-lg text-slate-400'>{total_test}</p>
+                        {
+                            total_test ? <p className='text-lg text-slate-400'>{total_test}</p> : <p className='text-lg text-slate-400'>0</p>
+                        }
+
                     </div>
 
                     <div>
                         <p className='text-primary-400 font-bold'>Time Typing</p>
-                        <p className='text-lg text-slate-400'>{max_time}</p>
+                        {
+                            max_time ? <p className='text-lg text-slate-400'>{max_time}</p> : <p className='text-lg text-slate-400'>0</p>
+                        }
                     </div>
 
                     <div>
                         <p className='text-primary-400 font-bold'>Reviews Posted</p>
-                        <p className='text-lg text-slate-400'>{reviews}</p>
+                        {
+                            reviews ? <p className='text-lg text-slate-400'>{reviews}</p> : <p className='text-lg text-slate-400'>0</p>
+                        }
                     </div>
                 </Card>
                 <div className='grid grid-cols-1 gap-4 text-center'>
                     <Card className="grid grid-cols-4 mb-10">
                         <div>
                             <p className='text-primary-400 font-bold'>Average WPM</p>
-                            <p className='text-lg text-slate-400'>{average_wpm.toFixed(1)}</p>
+                            {
+                                average_wpm ? <p className='text-lg text-slate-400'>{average_wpm.toFixed(1)}</p> : <p className='text-lg text-slate-400'>0</p>
+                            }
                         </div>
 
                         <div>
                             <p className='text-primary-400 font-bold'>Average Error</p>
-                            <p className='text-lg text-slate-400'>{average_error.toFixed(1)}</p>
+                            {
+                                average_error ? <p className='text-lg text-slate-400'>{average_error.toFixed(1)}</p> : <p className='text-lg text-slate-400'>0</p>
+                            }
                         </div>
 
                         <div>
                             <p className='text-primary-400 font-bold'>Average Accuracy</p>
-                            <p className='text-lg text-slate-400'>{average_accuracy.toFixed(1)}</p>
+                            {
+                                average_accuracy ? <p className='text-lg text-slate-400'>{average_accuracy.toFixed(1)}</p> : <p className='text-lg text-slate-400'>0</p>
+                            }
                         </div>
 
                         <div>
                             <p className='text-primary-400 font-bold'>Total typed</p>
-                            <p className='text-lg text-slate-400'>{max_typed}</p>
+                            {
+                                max_typed ? <p className='text-lg text-slate-400'>{max_typed}</p> : <p className='text-lg text-slate-400'>0</p>
+                            }
                         </div>
                     </Card>
                 </div>

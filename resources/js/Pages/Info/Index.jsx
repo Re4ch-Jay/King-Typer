@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { useForm, Head } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 
 export default function Index({
     auth,
@@ -31,45 +31,73 @@ export default function Index({
             <div className='grid grid-cols-3 gap-3 justify-items-center'>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Total users joined</p>
-                    <p className='text-gray-100 text-7xl'>{users_count}</p>
+                    {
+                        users_count ? <p className='text-gray-100 text-7xl'>{users_count}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Total tests started</p>
-                    <p className='text-gray-100 text-7xl'>{tests_count}</p>
+                    {
+                        tests_count ? <p className='text-gray-100 text-7xl'>{tests_count}</p> : <p className='text-gray-100 text-7xl'>0</p>
+
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Total reviews</p>
-                    <p className='text-gray-100 text-7xl'>{reviews_count}</p>
+                    {
+                        reviews_count ? <p className='text-gray-100 text-7xl'>{reviews_count}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
             </div>
 
             <div className='grid grid-cols-3 gap-3 justify-items-center'>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Total time typing</p>
-                    <p className='text-gray-100 text-7xl'>{total_time}</p>
+                    {
+                        total_time ? <p className='text-gray-100 text-7xl'>{total_time}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Total typed</p>
-                    <p className='text-gray-100 text-7xl'>{total_typed}</p>
+                    {
+                        total_typed ? <p className='text-gray-100 text-7xl'>{total_typed}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Average Accuracy</p>
-                    <p className='text-gray-100 text-7xl'>{average_accuracy.toFixed(1)}</p>
+                    {
+                        average_accuracy ? <p className='text-gray-100 text-7xl'>{average_accuracy.toFixed(1)}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
             </div>
 
             <div className='grid grid-cols-3 gap-3 justify-items-center'>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Average WPM</p>
-                    <p className='text-gray-100 text-7xl'>{average_wpm.toFixed(1)}</p>
+                    {
+                        average_wpm ? <p className='text-gray-100 text-7xl'>{average_wpm.toFixed(1)}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Average Error</p>
-                    <p className='text-gray-100 text-7xl'>{average_error.toFixed(1)}</p>
+                    {
+                        average_error ? <p className='text-gray-100 text-7xl'>{average_error.toFixed(1)}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
                 <div className='text-center text-lg'>
                     <p className='text-gray-400'>Average Accuracy</p>
-                    <p className='text-gray-100 text-7xl'>{average_accuracy.toFixed(1)}</p>
+                    {
+                        average_accuracy ? <p className='text-gray-100 text-7xl'>{average_accuracy.toFixed(1)}</p> : <p className='text-gray-100 text-7xl'>0</p>
+                    }
+
                 </div>
             </div>
 
