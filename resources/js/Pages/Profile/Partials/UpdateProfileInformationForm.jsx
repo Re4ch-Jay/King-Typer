@@ -74,7 +74,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         className="mt-1 block w-full"
                         value={data.bio}
                         onChange={(e) => setData('bio', e.target.value)}
-                        required
                     />
 
                     <InputError className="mt-2" message={errors.bio} />
@@ -88,7 +87,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         className="mt-1 block w-full"
                         value={data.keyboard}
                         onChange={(e) => setData('keyboard', e.target.value)}
-                        required
                     />
 
                     <InputError className="mt-2" message={errors.keyboard} />
@@ -104,7 +102,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             className="mt-1 block w-full"
                             value={data.twitter}
                             onChange={(e) => setData('twitter', e.target.value)}
-                            required
                         />
                     </div>
 
@@ -121,7 +118,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             className="mt-1 block w-full"
                             value={data.github}
                             onChange={(e) => setData('github', e.target.value)}
-                            required
                         />
                     </div>
 
@@ -136,7 +132,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         className="mt-1 block w-full p-2"
                         value={data.website}
                         onChange={(e) => setData('website', e.target.value)}
-                        required
                     />
 
                     <InputError className="mt-2" message={errors.website} />

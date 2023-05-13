@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import dayjs from 'dayjs';
 import React from 'react';
+import { TbWorld } from "react-icons/tb";
 
 const avatar = "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
 
@@ -29,9 +30,14 @@ export default function Index({
                 <Card className="grid grid-cols-4 text-center mb-10">
                     <div className='grid grid-cols-2 gap-0'>
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
-                        <div>
+                        <div className='flex flex-col justify-center items-center'>
                             <p className='text-primary-400 font-bold'>{user.name}</p>
                             <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(user.created_at), 'day')} days</p>
+                            <div>
+                                {
+                                    user.website && <a href={user.website} className='text-lg text-slate-400'><TbWorld /></a>
+                                }
+                            </div>
                         </div>
                     </div>
 
@@ -54,6 +60,35 @@ export default function Index({
                         <p className='text-primary-400 font-bold'>Reviews Posted</p>
                         {
                             reviews ? <p className='text-lg text-slate-400'>{reviews}</p> : <p className='text-lg text-slate-400'>0</p>
+                        }
+                    </div>
+                </Card>
+                <Card className="grid grid-cols-4 mb-10 text-center">
+                    <div>
+                        <p className='text-primary-400 font-bold'>Bio</p>
+                        {
+                            user.bio ? <p className='text-lg text-slate-400'>{user.bio}</p> : <p className='text-lg text-slate-400'>No bio yet</p>
+                        }
+                    </div>
+
+                    <div>
+                        <p className='text-primary-400 font-bold'>Keyboard</p>
+                        {
+                            user.keyboard ? <p className='text-lg text-slate-400'>{user.keyboard}</p> : <p className='text-lg text-slate-400'>No keyboard has been added</p>
+                        }
+                    </div>
+
+                    <div>
+                        <p className='text-primary-400 font-bold'>Twiiter</p>
+                        {
+                            user.twitter ? <a href={`https://twitter.com/${user.twitter}`} className='text-lg text-slate-400'>{user.twitter}</a> : <p className='text-lg text-slate-400'>No twitter has been added</p>
+                        }
+                    </div>
+
+                    <div>
+                        <p className='text-primary-400 font-bold'>GitHub</p>
+                        {
+                            user.github ? <a href={`https://github.com/${user.github}`} className='text-lg text-slate-400'>{user.github}</a> : <p className='text-lg text-slate-400'>No github has been added</p>
                         }
                     </div>
                 </Card>
