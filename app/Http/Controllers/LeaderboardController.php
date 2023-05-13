@@ -21,8 +21,8 @@ class LeaderboardController extends Controller
             $query->where('time', $time);
         }
 
-        $typingTests = $query->orderBy('max_accuracy', 'asc')
-            ->orderBy('max_wpm', 'asc')
+        $typingTests = $query->orderBy('max_wpm', 'desc')
+            ->orderBy('max_accuracy', 'desc')
             ->take(10)
             ->get();
 
