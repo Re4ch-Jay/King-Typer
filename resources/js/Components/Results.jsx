@@ -7,6 +7,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head, Link, usePage } from '@inertiajs/react';
+import useEngine from "@/hooks/useEngine";
 
 const Results = ({
   state,
@@ -17,10 +18,10 @@ const Results = ({
   numberOfWords,
   wordType,
   countDownSeconds,
-  
+
 }) => {
-  
-  const {auth} = usePage().props;
+
+  const { auth } = usePage().props;
 
   const { data, setData, post, processing, reset, errors } = useForm({
     wpm: '',
@@ -33,27 +34,29 @@ const Results = ({
   const [screenshot, setScreenshot] = useState(null);
   const [buttonSave, setButtonSave] = useState(true);
   const appRef = useRef(null);
-
+  const { restart } = useEngine();
 
   if (state !== "finish") {
     return null;
   }
-  
 
   const initial = { opacity: 0 };
   const animate = { opacity: 1 };
 
   const submit = (e) => {
-      e.preventDefault();
-      data.wpm = calculateWPM(total, countDownSeconds).toFixed(0);
-      data.accuracy = formatPercentage(accuracyPercentage);
-      data.error = typeErrors;
-      data.time = countDownSeconds;
-      data.typed = total;
-      post(route('typing.store'), { onSuccess: () => reset() });
-      setButtonSave(false);
+    e.preventDefault();
+    data.wpm = calculateWPM(total, countDownSeconds).toFixed(0);
+    data.accuracy = formatPercentage(accuracyPercentage);
+    data.error = typeErrors;
+    data.time = countDownSeconds;
+    data.typed = total;
+    post(route('typing.store'), { onSuccess: () => reset() });
+    setButtonSave(false);
+    restart();
+    window.location.href = "/dashboard";
+    setButtonSave(true);
   };
-    
+
   const takeScreenshot = () => {
     html2canvas(appRef.current).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
@@ -66,7 +69,7 @@ const Results = ({
   };
 
   return (
-  
+
     <motion.ul
       initial={initial}
       animate={animate}
@@ -136,10 +139,10 @@ const Results = ({
           Sign In To Save Result
         </motion.a>
       )}
-      
+
       {buttonSave ? (
         <form onSubmit={submit}>
-            <PrimaryButton className="mt-4" disabled={processing}>Save</PrimaryButton>
+          <PrimaryButton className="mt-4" disabled={processing}>Save</PrimaryButton>
         </form>
       ) : (
         <div className="text-lg">Saved</div>
