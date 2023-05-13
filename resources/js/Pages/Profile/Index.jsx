@@ -8,6 +8,8 @@ const avatar = "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQ
 
 export default function Index({
     auth,
+    user,
+    stats,
     total_test,
     average_wpm,
     average_accuracy,
@@ -18,20 +20,18 @@ export default function Index({
     all_tests
 }) {
 
-    console.log(all_tests)
-
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="My Stats" />
+            <Head title={`${user.name} Stats`} />
 
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-                <h1 className="text-2xl text-primary-400 font-bold mb-10">My Stats</h1>
+                <h1 className="text-2xl text-primary-400 font-bold mb-10">{user.name} Stats</h1>
                 <Card className="grid grid-cols-4 text-center mb-10">
                     <div className='grid grid-cols-2 gap-0'>
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div>
-                            <p className='text-primary-400 font-bold'>{auth.user.name}</p>
-                            <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(auth.user.created_at), 'day')} days</p>
+                            <p className='text-primary-400 font-bold'>{user.name}</p>
+                            <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(user.created_at), 'day')} days</p>
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@ export default function Index({
                 </div>
 
                 <div>
-                    <h1 className='text-primary-400 mb-10 text-2xl font-bold'>Previous Test Stats</h1>
+                    <h1 className='text-primary-400 mb-10 text-2xl font-bold'>{user.name} Previous Test Stats</h1>
                     <Card className='grid grid-cols-6 gap-2 text-center text-2xl text-primary-400 mb-10'>
                         <p>WPM</p>
                         <p>Accuracy</p>

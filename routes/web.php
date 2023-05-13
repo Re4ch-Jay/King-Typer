@@ -42,6 +42,8 @@ Route::get('/leaderboard/{time}', [LeaderboardController::class, 'index'])->name
 
 Route::get('/mystats', [MyStatsController::class, 'index'])->name('mystats.index');
 
+Route::get('/profile/{user:name}', [ProfileController::class, 'index'])->name('profile.index');
+
 Route::resource('reviews', ReviewController::class)
     ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
