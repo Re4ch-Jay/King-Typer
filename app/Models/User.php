@@ -3,17 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Review;
-use App\Models\TypingTest;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bio',
+        'keyboard',
+        'twitter',
+        'github',
+        'website',
     ];
 
     /**
@@ -45,9 +50,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tests() {
+    public function tests()
+    {
         return $this->hasMany(TypingTest::class);
     }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);

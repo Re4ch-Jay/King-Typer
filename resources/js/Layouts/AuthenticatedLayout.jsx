@@ -24,17 +24,14 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Typing
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
                                     Leaderboard
                                 </NavLink>
                                 <NavLink href={route('reviews.index')} active={route().current('reviews.index')}>
                                     Review
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('info.index')} active={route().current('info.index')}>
                                     Info
-                                </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Settings
                                 </NavLink>
 
                             </div>
@@ -68,7 +65,8 @@ export default function Authenticated({ user, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        <Dropdown.Link href={route('mystats.index')}>My Stats</Dropdown.Link>
+                                        <Dropdown.Link href={route('profile.edit')}>Profile Settings</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
                                             Log Out
                                         </Dropdown.Link>
@@ -108,8 +106,14 @@ export default function Authenticated({ user, header, children }) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
+                            Leaderboard
+                        </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('reviews.index')} active={route().current('reviews.index')}>
                             Review
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('info.index')} active={route().current('info.index')}>
+                            Info
                         </ResponsiveNavLink>
                     </div>
 
@@ -120,7 +124,8 @@ export default function Authenticated({ user, header, children }) {
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('mystats.index')}>My Stats</ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('profile.edit')}>Profile Settings</ResponsiveNavLink>
                             <ResponsiveNavLink method="post" href={route('logout')} as="button">
                                 Log Out
                             </ResponsiveNavLink>

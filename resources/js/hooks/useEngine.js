@@ -9,7 +9,7 @@ const COUNTDOWN_SECONDS = 15;
 const WORD_TYPE = 'words';
 
 const useEngine = () => {
- 
+
   const [numberOfWords, setNumberOfWords] = useState(NUMBER_OF_WORDS);
   const [countDownSeconds, setCountDownSeconds] = useState(COUNTDOWN_SECONDS);
   const [wordType, setWordType] = useState(WORD_TYPE)
@@ -61,7 +61,7 @@ const useEngine = () => {
     setWordType(option)
     restart()
   }
-  
+
   const sumErrors = useCallback(() => {
     debug(`cursor: ${cursor} - words.length: ${words.length}`);
     const wordsReached = words.substring(0, Math.min(cursor, words.length));
