@@ -26,7 +26,7 @@ class ProfileController extends Controller
         $max_time = DB::table('typing_tests')->where('user_id', '=', $user->id)->sum('time');
         $max_typed = DB::table('typing_tests')->where('user_id', '=', $user->id)->sum('typed');
         $reviews = DB::table('reviews')->where('user_id', '=', $user->id)->count('id');
-        $all_tests = DB::table('typing_tests')->where('user_id', '=', $user->id)->orderByDesc("created_at")->get();
+        $all_tests = DB::table('typing_tests')->where('user_id', '=', $user->id)->orderByDesc("created_at")->take(10)->get();
 
         return Inertia::render('Profile/Index', [
             'user' => $user,

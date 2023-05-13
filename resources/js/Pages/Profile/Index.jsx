@@ -125,7 +125,7 @@ export default function Index({
                 </div>
 
                 <div>
-                    <h1 className='text-primary-400 mb-10 text-2xl font-bold'>{user.name} Previous Test Stats</h1>
+                    <h1 className='text-primary-400 mb-10 text-2xl font-bold'>{user.name} Previous 10 Test Stats</h1>
                     <Card className='grid grid-cols-6 gap-2 text-center text-2xl text-primary-400 mb-10'>
                         <p>WPM</p>
                         <p>Accuracy</p>

@@ -34,7 +34,7 @@ class MyStatsController extends Controller
 
     public function allTests()
     {
-        return DB::table('typing_tests')->where('user_id', '=', $this->currentUser())->orderByDesc("created_at")->get();
+        return DB::table('typing_tests')->where('user_id', '=', $this->currentUser())->orderByDesc("created_at")->take(10)->get();
     }
 
     public function currentUser()
