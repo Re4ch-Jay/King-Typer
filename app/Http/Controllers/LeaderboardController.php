@@ -18,7 +18,7 @@ class LeaderboardController extends Controller
             ->groupBy('user_id');
 
         if ($time == 15 || $time == 30 || $time == 60) {
-            $query->where('time', $time);
+            $query->where('time', $time)->where('accuracy', '>', 90);
         }
 
         $typingTests = $query->orderBy('max_wpm', 'desc')
@@ -26,13 +26,14 @@ class LeaderboardController extends Controller
             ->take(10)
             ->get();
 
+
         $leaderboardData = $typingTests->map(function ($test) {
             return [
                 'id' => $test->user_id,
                 'username' => $test->user->name,
                 'wpm' => $test->max_wpm,
                 'accuracy' => $test->max_accuracy,
-                'date_created' => $test->created_at,
+                'created_at' => $test->created_at,
             ];
         })->toArray();
 
