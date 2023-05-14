@@ -3,7 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import dayjs from 'dayjs';
 import React from 'react';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
+dayjs.extend(relativeTime);
 const avatar = "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
 
 export default function Index({
@@ -16,6 +18,8 @@ export default function Index({
     max_typed,
     reviews,
     all_tests
+
+
 }) {
 
     console.log(all_tests)
@@ -109,7 +113,7 @@ export default function Index({
                             <p>{test.error}</p>
                             <p>{test.typed}</p>
                             <p>{test.time}</p>
-                            <p>{dayjs().diff(dayjs(test.created_at), 'day')} days ago</p>
+                            <p>{dayjs().to(dayjs(test.created_at))}</p>
                         </Card>
                     ))}
                 </div>

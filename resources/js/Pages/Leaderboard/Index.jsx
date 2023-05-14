@@ -23,7 +23,7 @@ export default function Index({ auth, leaderboardData, time }) {
                 </Card>
                 <h1 className="text-2xl text-primary-400 font-bold mb-10">Time {time} Seconds</h1>
                 <Leaderboard leaderboardData={leaderboardData} />
-                <h5 className="text-md text-primary-400 my-10">Your account must be has more than 90% accuracy to stay on this list</h5>
+                <h5 className="text-md text-primary-400 my-10">You must have an accuracy of more than 90% to be on this list</h5>
             </div>
         </AuthenticatedLayout>
     );
