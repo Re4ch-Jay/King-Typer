@@ -18,7 +18,6 @@ const Results = ({
   numberOfWords,
   wordType,
   countDownSeconds,
-
 }) => {
 
   const { auth } = usePage().props;
@@ -50,6 +49,7 @@ const Results = ({
     data.error = typeErrors;
     data.time = countDownSeconds;
     data.typed = total;
+    data.language = wordType;
     post(route('typing.store'), { onSuccess: () => reset() });
     setButtonSave(false);
     restart();
