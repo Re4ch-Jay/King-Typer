@@ -73,7 +73,7 @@ const CountdownTimer = ({ timeLeft }) => {
 };
 
 const WordType = ({ wordType }) => {
-  return <h2 className="text-primary-400 text-xl font-medium">Word Type: {wordType}</h2>;
+  return <h2 className="text-primary-400 text-xl font-medium">Word Type: {wordType.toLocaleUpperCase()}</h2>;
 };
 
 const NumberOfWords = ({ numberOfWords }) => {

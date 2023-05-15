@@ -80,6 +80,8 @@ const generateWords = (count, option) => {
       return getRandomWord('Czech', count);
     case 'armenian':
       return getRandomWord('Armenian', count);
+    case 'khmer':
+      return getRandomWord('Khmer', count);
     case 'arabic':
       return generateARWords(count);
     case 'indian eng':

@@ -21,7 +21,7 @@ const TypingMode = ({ handleSeconds, handleNumberOfWords, handleWordTypes }) => 
         <Card className='mb-10'>
 
             {word ? (
-                <div onClick={() => { handleWordTypes('words'); setWord(true); setNumber(false); }} className="text-primary-500 hover:text-gray-800 cursor-pointer"><strong>Aa</strong> Words</div>
+                <div onClick={() => { handleWordTypes('english'); setWord(true); setNumber(false); }} className="text-primary-500 hover:text-gray-800 cursor-pointer"><strong>Aa</strong> Words</div>
             ) : (
                 <div onClick={() => { handleWordTypes('words'); setWord(true); setNumber(false); }} className="text-slate-500 hover:text-gray-800 cursor-pointer"><strong>Aa Words</strong></div>
             )}
@@ -174,6 +174,7 @@ const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
         { range: 18, displays: "czech" },
         { range: 19, displays: "armenian" },
         { range: 20, displays: "russian" },
+        { range: 21, displays: "khmer" },
     ];
 
     return (
