@@ -14,7 +14,6 @@ const useEngine = () => {
   const [countDownSeconds, setCountDownSeconds] = useState(COUNTDOWN_SECONDS);
   const [wordType, setWordType] = useState(WORD_TYPE)
 
-  console.log(countDownSeconds)
   const [state, setState] = useState("start");
   const { timeLeft, startCountdown, resetCountdown } =
     useCountdown(countDownSeconds);
