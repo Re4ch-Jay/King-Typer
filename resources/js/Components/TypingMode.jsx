@@ -154,14 +154,27 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
 
 const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
     const languageOptions = [
-        { range: 1, displays: "russian" },
+        { range: 1, displays: "english" },
         { range: 2, displays: "spainish" },
         { range: 3, displays: "french" },
         { range: 4, displays: "indian eng" },
         { range: 5, displays: "italian" },
         { range: 6, displays: "arabic" },
+        { range: 7, displays: "greek" },
+        { range: 8, displays: "korean" },
+        { range: 9, displays: "japanese" },
+        { range: 10, displays: "norwegian" },
+        { range: 11, displays: "portuguese" },
+        { range: 12, displays: "swedish" },
+        { range: 13, displays: "german" },
+        { range: 14, displays: "ukrainian" },
+        { range: 15, displays: "lithuanian" },
+        { range: 16, displays: "filipino" },
+        { range: 17, displays: "estonian" },
+        { range: 18, displays: "czech" },
+        { range: 19, displays: "armenian" },
+        { range: 20, displays: "russian" },
     ];
-
 
     return (
         <div className="fixed inset-0 z-10 overflow-y-auto">

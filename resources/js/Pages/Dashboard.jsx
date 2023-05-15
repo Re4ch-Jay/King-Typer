@@ -9,12 +9,11 @@ import UserTypings from '@/Components/UserTypings';
 import useEngine from '@/hooks/useEngine';
 import { calculateAccuracyPercentage } from "@/utils/helpers";
 import React from 'react';
-import { getRandomWord } from '../lib/wordGenerator';
 
 export default function Dashboard({ auth }) {
   const { words, typed, timeLeft, errors, state, restart, totalTyped, handleSeconds, handleNumberOfWords, handleWordTypes, wordType, numberOfWords, countDownSeconds } =
     useEngine();
-  console.log(getRandomWord("Korean"));
+
   return (
     <AuthenticatedLayout user={auth.user}>
       <Head title='Typing' />

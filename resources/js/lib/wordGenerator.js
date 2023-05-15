@@ -39,11 +39,16 @@ const languageMap = {
     Armenian: armenian,
 };
 
-export function getRandomWord(language) {
+export function getRandomWord(language, count = 1) {
     const wordList = languageMap[language];
     if (wordList) {
-        const randomIndex = Math.floor(Math.random() * wordList.length);
-        return wordList[randomIndex];
+        const words = [];
+        for (let i = 0; i < count; i++) {
+            const randomIndex = Math.floor(Math.random() * wordList.length);
+            words.push(wordList[randomIndex]);
+        }
+        return words.join(' '); // Join words with a space
     }
     return null;
 }
+
