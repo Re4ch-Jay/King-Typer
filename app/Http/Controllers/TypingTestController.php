@@ -35,6 +35,7 @@ class TypingTestController extends Controller
             'error' => 'required',
             'typed' => 'required',
             'time' => 'required',
+            'language' => 'required',
         ]);
 
         $request->user()->tests()->create($validated);

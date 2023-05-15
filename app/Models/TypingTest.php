@@ -15,6 +15,7 @@ class TypingTest extends Model
         'error',
         'typed',
         'time',
+        'language',
     ];
 
     /*
