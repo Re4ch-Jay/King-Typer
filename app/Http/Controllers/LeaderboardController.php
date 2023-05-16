@@ -18,7 +18,7 @@ class LeaderboardController extends Controller
             ->groupBy('user_id');
 
         if ($time == 15 || $time == 30 || $time == 60) {
-            $query->where('time', $time)->where('accuracy', '>', 90);
+            $query->where('time', $time)->where('accuracy', '>', 90)->where('language', 'english');
         }
 
         $typingTests = $query->orderBy('max_wpm', 'desc')
