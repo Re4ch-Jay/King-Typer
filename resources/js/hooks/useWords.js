@@ -1,11 +1,7 @@
 import { useCallback, useState } from "react";
 import { faker } from "@faker-js/faker";
-import { faker as fakerES } from "@faker-js/faker/locale/es"
-import { faker as fakerFR } from "@faker-js/faker/locale/fr"
 import { faker as fakerAR } from "@faker-js/faker/locale/ar"
-import { faker as fakerRU } from "@faker-js/faker/locale/ru"
 import { faker as fakerIND } from "@faker-js/faker/locale/en_IND"
-import { faker as fakerIT } from "@faker-js/faker/locale/it"
 import { getRandomWord } from '../lib/wordGenerator';
 
 
@@ -20,8 +16,6 @@ function generateINDWords(count) {
 
 const generateWords = (count, option) => {
   switch (option) {
-    case 'words':
-      return faker.random.words(count).toLowerCase();
     case 'city':
       return faker.address.cityName();
     case 'name':
@@ -43,7 +37,7 @@ const generateWords = (count, option) => {
     case 'system':
       return faker.system.commonFileExt();
     case 'number':
-      return faker.random.words(count).toLowerCase() + " " + faker.address.buildingNumber();
+      return getRandomWord('Number', count);
     case 'english':
       return getRandomWord('English', count);
     case 'spainish':
