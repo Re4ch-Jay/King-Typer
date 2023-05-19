@@ -23,7 +23,7 @@ const TypingMode = ({ handleSeconds, handleNumberOfWords, handleWordTypes }) => 
             {word ? (
                 <div onClick={() => { handleWordTypes('english'); setWord(true); setNumber(false); }} className="text-primary-500 hover:text-gray-800 cursor-pointer"><strong>Aa</strong> Words</div>
             ) : (
-                <div onClick={() => { handleWordTypes('words'); setWord(true); setNumber(false); }} className="text-slate-500 hover:text-gray-800 cursor-pointer"><strong>Aa Words</strong></div>
+                <div onClick={() => { handleWordTypes('english'); setWord(true); setNumber(false); }} className="text-slate-500 hover:text-gray-800 cursor-pointer"><strong>Aa Words</strong></div>
             )}
             {number ? (
                 <div onClick={() => { handleWordTypes('number'); setNumber(true); setWord(false); }} className="text-primary-500 hover:text-gray-800 cursor-pointer"># Number</div>
