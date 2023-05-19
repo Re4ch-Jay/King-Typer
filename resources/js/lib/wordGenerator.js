@@ -29,6 +29,7 @@ import vehicle from './nouns/vehicle.json';
 import lorem from './nouns/lorem.json';
 import system from './nouns/system.json';
 import name from './nouns/name.json';
+import cityname from './nouns/city_name.json';
 
 const wordMap = {
     English: english,
@@ -62,6 +63,7 @@ const wordMap = {
     Lorem: lorem,
     System: system,
     Name: name,
+    CityName: cityname,
 };
 
 export function getRandomWord(wordType, count = 1) {

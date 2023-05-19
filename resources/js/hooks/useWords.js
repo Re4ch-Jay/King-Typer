@@ -34,6 +34,7 @@ const generateWords = (count, option) => {
     'armenian': 'Armenian',
     'khmer': 'Khmer',
     'arabic': 'Arabic',
+    'cityname': 'CityName'
   };
 
   const selectedOption = wordOptions[option] || 'English';

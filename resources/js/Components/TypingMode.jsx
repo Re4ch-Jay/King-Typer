@@ -127,6 +127,7 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
         { range: 7, displays: "music" },
         { range: 8, displays: "vehicle" },
         { range: 9, displays: "system" },
+        { range: 10, displays: "cityname" },
     ];
 
 
