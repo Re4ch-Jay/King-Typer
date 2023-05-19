@@ -1,41 +1,28 @@
 import { useCallback, useState } from "react";
-import { faker } from "@faker-js/faker";
-import { faker as fakerAR } from "@faker-js/faker/locale/ar"
-import { faker as fakerIND } from "@faker-js/faker/locale/en_IND"
 import { getRandomWord } from '../lib/wordGenerator';
-
-
-function generateARWords(count) {
-  return fakerAR.random.words(count);
-}
-
-function generateINDWords(count) {
-  return fakerIND.random.words(count);
-}
-
 
 const generateWords = (count, option) => {
   switch (option) {
     case 'city':
-      return faker.address.cityName();
+      return getRandomWord("City", count);
     case 'name':
-      return faker.name.firstName();
+      return getRandomWord("Name", count);
     case 'email':
-      return faker.internet.email();
+      return getRandomWord("Email", count);
     case 'animal':
-      return faker.animal.dog();
+      return getRandomWord("Animal", count);
     case 'commerce':
-      return faker.commerce.department();
+      return getRandomWord("Commerce", count);
     case 'company':
-      return faker.company.bs();
+      return getRandomWord("Company", count);
     case 'lorem':
-      return faker.lorem.words(count);
+      return getRandomWord("Lorem", count);
     case 'music':
-      return faker.music.genre();
+      return getRandomWord("Music", count);
     case 'vehicle':
-      return getRandomWord("Vehicle", count)
+      return getRandomWord("Vehicle", count);
     case 'system':
-      return faker.system.commonFileExt();
+      return getRandomWord("System", count);
     case 'number':
       return getRandomWord('Number', count);
     case 'english':
@@ -78,8 +65,6 @@ const generateWords = (count, option) => {
       return getRandomWord('Khmer', count);
     case 'arabic':
       return getRandomWord('Arabic', count);
-    case 'indian eng':
-      return generateINDWords(count);
     default:
       return getRandomWord('English', count);
   }

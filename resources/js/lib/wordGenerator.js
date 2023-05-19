@@ -19,8 +19,18 @@ import armenian from './languages/armenian.json';
 import khmer from './languages/khmer.json';
 import number from './languages/number.json';
 import arabic from './languages/arabic.json';
+import animal from './nouns/animal.json';
+import city from './nouns/city.json';
+import commerce from './nouns/commerce.json';
+import company from './nouns/company.json';
+import email from './nouns/email.json';
+import music from './nouns/music.json';
+import vehicle from './nouns/vehicle.json';
+import lorem from './nouns/lorem.json';
+import system from './nouns/system.json';
+import name from './nouns/name.json';
 
-const languageMap = {
+const wordMap = {
     English: english,
     French: french,
     Spanish: spanish,
@@ -42,10 +52,20 @@ const languageMap = {
     Khmer: khmer,
     Number: number,
     Arabic: arabic,
+    Animal: animal,
+    City: city,
+    Commerce: commerce,
+    Company: company,
+    Email: email,
+    Music: music,
+    Vehicle: vehicle,
+    Lorem: lorem,
+    System: system,
+    Name: name,
 };
 
-export function getRandomWord(language, count = 1) {
-    const wordList = languageMap[language];
+export function getRandomWord(wordType, count = 1) {
+    const wordList = wordMap[wordType];
     if (wordList) {
         const words = [];
         for (let i = 0; i < count; i++) {
