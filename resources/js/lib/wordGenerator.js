@@ -18,6 +18,7 @@ import czech from './languages/czech.json';
 import armenian from './languages/armenian.json';
 import khmer from './languages/khmer.json';
 import number from './languages/number.json';
+import arabic from './languages/arabic.json';
 
 const languageMap = {
     English: english,
@@ -40,6 +41,7 @@ const languageMap = {
     Armenian: armenian,
     Khmer: khmer,
     Number: number,
+    Arabic: arabic,
 };
 
 export function getRandomWord(language, count = 1) {

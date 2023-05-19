@@ -33,7 +33,7 @@ const generateWords = (count, option) => {
     case 'music':
       return faker.music.genre();
     case 'vehicle':
-      return faker.vehicle.bicycle();
+      return getRandomWord("Vehicle", count)
     case 'system':
       return faker.system.commonFileExt();
     case 'number':
@@ -77,11 +77,11 @@ const generateWords = (count, option) => {
     case 'khmer':
       return getRandomWord('Khmer', count);
     case 'arabic':
-      return generateARWords(count);
+      return getRandomWord('Arabic', count);
     case 'indian eng':
       return generateINDWords(count);
     default:
-      return faker.random.words(count).toLowerCase();
+      return getRandomWord('English', count);
   }
 };
 
