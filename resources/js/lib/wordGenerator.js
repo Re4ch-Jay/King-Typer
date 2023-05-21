@@ -46,6 +46,16 @@ import rust from './programmings/rust.json';
 import sql from './programmings/sql.json';
 import swift from './programmings/swift.json';
 import typescript from './programmings/typescript.json';
+import englishQuote from './quotes/english_quote.json';
+import frenchQuote from './quotes/french_quote.json';
+import germanQuote from './quotes/german_quote.json';
+import greekQuote from './quotes/greek_quote.json';
+import japaneseQuote from './quotes/japanese_quote.json';
+import khmerQuote from './quotes/khmer_quote.json';
+import koreanQuote from './quotes/korean_quote.json';
+import russianQuote from './quotes/russian_quote.json';
+import spanishQuote from './quotes/spainish_quote.json';
+import swedishQuote from './quotes/swedish_quote.json';
 
 const wordMap = {
     English: english,
@@ -96,6 +106,16 @@ const wordMap = {
     Sql: sql,
     Swift: swift,
     Typescript: typescript,
+    EnglishQuote: englishQuote,
+    FrenchQuote: frenchQuote,
+    GermanQuote: germanQuote,
+    GreekQuote: greekQuote,
+    JapaneseQuote: japaneseQuote,
+    KhmerQuote: khmerQuote,
+    KoreanQuote: koreanQuote,
+    RussianQuote: russianQuote,
+    SpanishQuote: spanishQuote,
+    SwedishQuote: swedishQuote,
 };
 
 export function getRandomWord(wordType, count = 1) {

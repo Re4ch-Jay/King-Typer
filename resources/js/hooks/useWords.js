@@ -51,9 +51,22 @@ const generateWords = (count, option) => {
     'sql': 'Sql',
     'swift': 'Swift',
     'typescript': 'Typescript',
+    'englishQuote': 'EnglishQuote',
+    'frenchQuote': 'FrenchQuote',
+    'germanQuote': 'GermanQuote',
+    'greekQuote': 'GreekQuote',
+    'japaneseQuote': 'JapaneseQuote',
+    'khmerQuote': 'KhmerQuote',
+    'koreanQuote': 'KoreanQuote',
+    'russianQuote': 'RussianQuote',
+    'spanishQuote': 'SpanishQuote',
+    'swedishQuote': 'SwedishQuote',
   };
 
   const selectedOption = wordOptions[option] || 'English';
+  if (selectedOption.endsWith('Quote')) {
+    return getRandomWord(selectedOption, 1);
+  }
   return getRandomWord(selectedOption, count);
 };
 

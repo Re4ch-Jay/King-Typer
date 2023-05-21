@@ -144,9 +144,18 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
         { range: 23, displays: "rust" },
         { range: 24, displays: "sql" },
         { range: 25, displays: "swift" },
-        { range: 26, displays: "typescript" }
+        { range: 26, displays: "typescript" },
+        { range: 27, displays: "englishQuote" },
+        { range: 28, displays: "frenchQuote" },
+        { range: 29, displays: "germanQuote" },
+        { range: 30, displays: "greekQuote" },
+        { range: 31, displays: "japaneseQuote" },
+        { range: 32, displays: "khmerQuote" },
+        { range: 33, displays: "koreanQuote" },
+        { range: 34, displays: "russianQuote" },
+        { range: 35, displays: "spanishQuote" },
+        { range: 36, displays: "swedishQuote" }
     ];
-
 
     return (
         <div className="fixed inset-0 z-10 overflow-y-auto">
