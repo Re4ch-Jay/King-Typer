@@ -30,6 +30,22 @@ import lorem from './nouns/lorem.json';
 import system from './nouns/system.json';
 import name from './nouns/name.json';
 import cityname from './nouns/city_name.json';
+import c from './programmings/c.json';
+import cpp from './programmings/cpp.json';
+import csharp from './programmings/csharp.json';
+import dart from './programmings/dart.json';
+import html from './programmings/html.json';
+import java from './programmings/java.json';
+import javascript from './programmings/javascript.json';
+import kotlin from './programmings/kotlin.json';
+import matlap from './programmings/matlap.json';
+import php from './programmings/php.json';
+import python from './programmings/python.json';
+import ruby from './programmings/ruby.json';
+import rust from './programmings/rust.json';
+import sql from './programmings/sql.json';
+import swift from './programmings/swift.json';
+import typescript from './programmings/typescript.json';
 
 const wordMap = {
     English: english,
@@ -64,6 +80,22 @@ const wordMap = {
     System: system,
     Name: name,
     CityName: cityname,
+    C: c,
+    Cpp: cpp,
+    Csharp: csharp,
+    Dart: dart,
+    Html: html,
+    Java: java,
+    Javascript: javascript,
+    Kotlin: kotlin,
+    Matlap: matlap,
+    Php: php,
+    Python: python,
+    Ruby: ruby,
+    Rust: rust,
+    Sql: sql,
+    Swift: swift,
+    Typescript: typescript,
 };
 
 export function getRandomWord(wordType, count = 1) {

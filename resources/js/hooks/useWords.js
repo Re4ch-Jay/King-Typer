@@ -34,7 +34,23 @@ const generateWords = (count, option) => {
     'armenian': 'Armenian',
     'khmer': 'Khmer',
     'arabic': 'Arabic',
-    'cityname': 'CityName'
+    'cityname': 'CityName',
+    'c': 'C',
+    'cpp': 'Cpp',
+    'csharp': 'Csharp',
+    'dart': 'Dart',
+    'html': 'Html',
+    'java': 'Java',
+    'javascript': 'Javascript',
+    'kotlin': 'Kotlin',
+    'matlap': 'Matlap',
+    'php': 'Php',
+    'python': 'Python',
+    'ruby': 'Ruby',
+    'rust': 'Rust',
+    'sql': 'Sql',
+    'swift': 'Swift',
+    'typescript': 'Typescript',
   };
 
   const selectedOption = wordOptions[option] || 'English';

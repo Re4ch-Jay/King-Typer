@@ -129,6 +129,22 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
         { range: 8, displays: "vehicle" },
         { range: 9, displays: "system" },
         { range: 10, displays: "cityname" },
+        { range: 11, displays: "c" },
+        { range: 12, displays: "cpp" },
+        { range: 13, displays: "csharp" },
+        { range: 14, displays: "dart" },
+        { range: 15, displays: "html" },
+        { range: 16, displays: "java" },
+        { range: 17, displays: "javascript" },
+        { range: 18, displays: "kotlin" },
+        { range: 19, displays: "matlap" },
+        { range: 20, displays: "php" },
+        { range: 21, displays: "python" },
+        { range: 22, displays: "ruby" },
+        { range: 23, displays: "rust" },
+        { range: 24, displays: "sql" },
+        { range: 25, displays: "swift" },
+        { range: 26, displays: "typescript" }
     ];
 
 
@@ -190,6 +206,7 @@ const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
                 <div className="relative w-full max-w-lg p-4 mx-auto bg-slate-800  rounded-md shadow-lg">
                     {languageOptions.map((range) => (
                         <div
+                            key={range.range}
                             onClick={() => { setLanguageModel(false); handleWordTypes(range.displays) }}
                             className="text-slate-500 hover:text-white cursor-pointer" >
                             {range.displays.toLocaleUpperCase()}
