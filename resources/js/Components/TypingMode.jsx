@@ -113,9 +113,6 @@ const TypingMode = ({ handleSeconds, handleNumberOfWords, handleWordTypes }) => 
 
 export default TypingMode
 
-
-
-
 const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
 
     const options = [
@@ -178,7 +175,6 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
         </div>
     )
 }
-
 
 const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
     const languageOptions = [
@@ -261,7 +257,6 @@ function CustomTimeModal({ setCustomTimeModal }) {
         </Modal>
     )
 }
-
 
 
 function Modal({ children, onClick }) {
