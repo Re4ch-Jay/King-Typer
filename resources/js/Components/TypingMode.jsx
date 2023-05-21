@@ -2,6 +2,7 @@ import { useState } from "react"
 import { TbWorld } from "react-icons/tb";
 import { BiTimeFive } from "react-icons/bi";
 import Card from "./Card";
+import React from "react";
 const TypingMode = ({ handleSeconds, handleNumberOfWords, handleWordTypes }) => {
 
     const [openModal, setOpenModal] = useState(false);
@@ -141,6 +142,7 @@ const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
                 <div className="relative w-full max-w-lg p-4 mx-auto bg-slate-800  rounded-md shadow-lg">
                     {options.map((range) => (
                         <div
+                            key={range.range}
                             onClick={() => { setOpenModal(false); handleWordTypes(range.displays) }}
                             className="text-slate-500 hover:text-white cursor-pointer" >
                             {range.displays.toLocaleUpperCase()}
