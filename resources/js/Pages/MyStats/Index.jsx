@@ -92,24 +92,26 @@ export default function Index({
 
                 <div>
                     <h1 className='text-primary-400 mb-10 text-2xl font-bold'>Previous 10 Test Stats</h1>
-                    <Card className='grid grid-cols-6 gap-2 text-center text-2xl text-primary-400 mb-10'>
+                    <Card className='grid grid-cols-7 gap-2 text-center text-2xl text-primary-400 mb-10'>
                         <p>WPM</p>
                         <p>Accuracy</p>
                         <p>Error</p>
                         <p>Typed</p>
                         <p>Time</p>
+                        <p>Word Type</p>
                         <p>Date</p>
                     </Card>
                     {all_tests.map(test => (
                         <Card
                             key={test.id}
-                            className='grid grid-cols-6 gap-2 text-center text-lg text-slate-400 mb-4'
+                            className='grid grid-cols-7 gap-2 text-center text-lg text-slate-400 mb-4'
                         >
                             <p>{test.wpm}</p>
                             <p>{test.accuracy}</p>
                             <p>{test.error}</p>
                             <p>{test.typed}</p>
                             <p>{test.time}</p>
+                            <p>{test.language}</p>
                             <p>{dayjs().to(dayjs(test.created_at))}</p>
                         </Card>
                     ))}
