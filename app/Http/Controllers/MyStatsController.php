@@ -29,6 +29,7 @@ class MyStatsController extends Controller
             'max_typed' => $max_typed,
             'reviews' => $reviews,
             'all_tests' => $this->allTests(),
+            'country' => auth()->user()->country
         ]);
     }
 

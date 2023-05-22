@@ -18,7 +18,8 @@ export default function Index({
     max_time,
     max_typed,
     reviews,
-    all_tests
+    all_tests,
+    country,
 }) {
 
     return (
@@ -31,7 +32,7 @@ export default function Index({
                     <div className='grid grid-cols-2 gap-0'>
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div className='flex flex-col justify-center items-center'>
-                            <p className='text-primary-400 font-bold'>{user.name}</p>
+                            <p className='text-primary-400 font-bold'>{user.name} {country}</p>
                             <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(user.created_at), 'day')} days</p>
                             <div>
                                 {
