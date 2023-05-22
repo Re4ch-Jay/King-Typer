@@ -17,12 +17,9 @@ export default function Index({
     max_time,
     max_typed,
     reviews,
-    all_tests
-
-
+    all_tests,
+    country,
 }) {
-
-    console.log(all_tests)
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -34,7 +31,7 @@ export default function Index({
                     <div className='grid grid-cols-2 gap-0'>
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div>
-                            <p className='text-primary-400 font-bold'>{auth.user.name}</p>
+                            <p className='text-primary-400 font-bold'>{auth.user.name} {country}</p>
                             <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(auth.user.created_at), 'day')} days</p>
                         </div>
                     </div>
