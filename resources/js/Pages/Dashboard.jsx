@@ -21,7 +21,7 @@ export default function Dashboard({ auth }) {
         <section>
           {state !== "finish" && (
             <>
-              <TypingMode handleSeconds={handleSeconds} handleNumberOfWords={handleNumberOfWords} handleWordTypes={handleWordTypes} />
+              {state === "start" && <TypingMode handleSeconds={handleSeconds} handleNumberOfWords={handleNumberOfWords} handleWordTypes={handleWordTypes} />}
 
               <WordType wordType={wordType} />
               <NumberOfWords numberOfWords={numberOfWords} />

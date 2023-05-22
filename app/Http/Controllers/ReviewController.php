@@ -61,7 +61,7 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-//    public function update(Request $request, Review $review)
+    //    public function update(Request $request, Review $review)
     public function update(Request $request, Review $review): RedirectResponse
     {
         $this->authorize('update', $review);
