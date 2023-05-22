@@ -10,6 +10,7 @@ function Leaderboard({ leaderboardData }) {
                     username={item.username}
                     wpm={item.wpm}
                     accuracy={item.accuracy}
+                    country={item.country}
                 />
             ))}
         </div>

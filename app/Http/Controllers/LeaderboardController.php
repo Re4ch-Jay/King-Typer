@@ -26,13 +26,13 @@ class LeaderboardController extends Controller
             ->take(10)
             ->get();
 
-
         $leaderboardData = $typingTests->map(function ($test) {
             return [
                 'id' => $test->user_id,
                 'username' => $test->user->name,
                 'wpm' => $test->max_wpm,
                 'accuracy' => $test->max_accuracy,
+                'country' => $test->user->country,
                 'created_at' => $test->created_at,
             ];
         })->toArray();
