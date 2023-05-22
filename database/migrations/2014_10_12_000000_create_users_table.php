@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('twitter')->nullable();
             $table->string('github')->nullable();
             $table->string('website')->nullable();
+            $table->string('country')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

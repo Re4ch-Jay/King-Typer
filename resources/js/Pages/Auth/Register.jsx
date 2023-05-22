@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import flags from '@/lib/countries/flag.json'
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -12,6 +13,7 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        country: '',
     });
 
     useEffect(() => {
@@ -19,6 +21,8 @@ export default function Register() {
             reset('password', 'password_confirmation');
         };
     }, []);
+
+    const [openModal, setOpenModal] = useState(false);
 
     const submit = (e) => {
         e.preventDefault();
@@ -97,6 +101,38 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel value="Country" onClick={() => setOpenModal(true)} />
+
+                    {
+                        openModal && <div className="fixed inset-0 z-10 overflow-y-auto">
+                            <div
+                                className="fixed inset-0 w-full h-full bg-black opacity-40"
+                                onClick={() => setOpenModal(false)}
+                            ></div>
+                            <div className="flex items-center min-h-screen px-4 py-8">
+                                <div className="relative w-full max-w-lg p-4 mx-auto bg-slate-800 rounded-md shadow-lg">
+                                    <div className="overflow-y-auto max-h-96">
+                                        {flags.map((flag) => (
+                                            <div
+                                                key={flag.code}
+                                                className="text-slate-500 hover:text-white cursor-pointer flex flex-row"
+                                                onClick={() => setOpenModal(false)}
+                                            >
+                                                {flag.name.toLocaleUpperCase()}
+                                                <div className="mx-2">{flag.emoji}</div>
+                                                <input type="text" name="country" value={data.country = flag.emoji} onChange={(e) => setData('country', e.target.value)} className='hidden' />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <InputError message={errors.country} className="mt-2" />
                 </div>
 
                 <div className="flex items-center justify-end mt-4">

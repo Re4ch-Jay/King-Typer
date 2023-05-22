@@ -28,6 +28,7 @@ const Results = ({
     error: '',
     typed: '',
     time: '',
+    language: '',
   });
 
   const [screenshot, setScreenshot] = useState(null);
