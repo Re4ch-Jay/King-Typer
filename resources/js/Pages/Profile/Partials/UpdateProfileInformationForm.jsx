@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
+import flags from '@/lib/countries/flag.json'
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
     const user = usePage().props.auth.user;
@@ -16,11 +18,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
         twitter: user.twitter,
         github: user.github,
         website: user.website,
+        country: user.country,
     });
+    const [selected, setSelected] = useState(data.country);
 
     const submit = (e) => {
         e.preventDefault();
-
+        data.country = selected;
         patch(route('profile.update'));
     };
 
@@ -65,6 +69,19 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                     <InputError className="mt-2" message={errors.email} />
                 </div>
+
+                <div className="mt-4">
+                    <InputLabel value="Country" />
+
+                    <select onChange={(e) => { setData('country', e.target.value); setSelected(e.target.value) }} value={selected} className='border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm'>
+                        {flags.map(flag => (
+                            <option key={flag.code} value={flag.emoji}>{flag.name.toLocaleUpperCase()} {flag.emoji}</option>
+                        ))}
+                    </select>
+
+                    <InputError message={errors.country} className="mt-2" />
+                </div>
+
                 <div>
                     <InputLabel htmlFor="bio" value="Bio" />
 

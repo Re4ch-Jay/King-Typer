@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -104,9 +104,9 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel value="Country"/>
+                    <InputLabel value="Country" />
 
-                    <select onChange={(e) => {setData('country', e.target.value); setSelected(e.target.value)}} value={selected} className='border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm'>
+                    <select onChange={(e) => { setData('country', e.target.value); setSelected(e.target.value) }} value={selected} className='border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm'>
                         {flags.map(flag => (
                             <option key={flag.code} value={flag.emoji}>{flag.name.toLocaleUpperCase()} {flag.emoji}</option>
                         ))}
