@@ -16,17 +16,17 @@ export default function Register() {
         country: '',
     });
 
+    const [selected, setSelected] = useState("🇦🇩");
+
     useEffect(() => {
         return () => {
             reset('password', 'password_confirmation');
         };
     }, []);
 
-    const [openModal, setOpenModal] = useState(false);
-
     const submit = (e) => {
         e.preventDefault();
-
+        data.country = selected;
         post(route('register'));
     };
 
@@ -104,33 +104,13 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel value="Country" onClick={() => setOpenModal(true)} />
+                    <InputLabel value="Country"/>
 
-                    {
-                        openModal && <div className="fixed inset-0 z-10 overflow-y-auto">
-                            <div
-                                className="fixed inset-0 w-full h-full bg-black opacity-40"
-                                onClick={() => setOpenModal(false)}
-                            ></div>
-                            <div className="flex items-center min-h-screen px-4 py-8">
-                                <div className="relative w-full max-w-lg p-4 mx-auto bg-slate-800 rounded-md shadow-lg">
-                                    <div className="overflow-y-auto max-h-96">
-                                        {flags.map((flag) => (
-                                            <div
-                                                key={flag.code}
-                                                className="text-slate-500 hover:text-white cursor-pointer flex flex-row"
-                                                onClick={() => setOpenModal(false)}
-                                            >
-                                                {flag.name.toLocaleUpperCase()}
-                                                <div className="mx-2">{flag.emoji}</div>
-                                                <input type="text" name="country" value={data.country = flag.emoji} onChange={(e) => setData('country', e.target.value)} className='hidden' />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    <select onChange={(e) => {setData('country', e.target.value); setSelected(e.target.value)}} value={selected} className='border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm'>
+                        {flags.map(flag => (
+                            <option key={flag.code} value={flag.emoji}>{flag.name.toLocaleUpperCase()} {flag.emoji}</option>
+                        ))}
+                    </select>
 
                     <InputError message={errors.country} className="mt-2" />
                 </div>
