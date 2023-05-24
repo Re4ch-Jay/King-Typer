@@ -33,7 +33,7 @@ export default function Index({
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div className='flex flex-col justify-center items-center'>
                             <p className='text-primary-400 font-bold'>{user.name} {country}</p>
-                            <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(user.created_at), 'day')} days</p>
+                            <p className='text-lg text-slate-400'>Joined {dayjs().to(dayjs(user.created_at), 'day')} ago</p>
                             <div>
                                 {
                                     user.website && <a href={user.website} className='text-lg text-slate-400'><TbWorld /></a>
