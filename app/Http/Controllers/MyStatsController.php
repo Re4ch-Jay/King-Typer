@@ -20,6 +20,10 @@ class MyStatsController extends Controller
         $max_typed = DB::table('typing_tests')->where('user_id', '=', $this->currentUser())->sum('typed');
         $reviews = DB::table('reviews')->where('user_id', '=', $this->currentUser())->count('id');
 
+        $world_average_accuracy = DB::table('typing_tests')->avg('accuracy');
+        $world_average_wpm = DB::table('typing_tests')->avg('wpm');
+        $world_average_error = DB::table('typing_tests')->avg('error');
+
         return Inertia::render('MyStats/Index', [
             'total_test' => $total_test,
             'average_wpm' => $average_wpm,
@@ -29,7 +33,10 @@ class MyStatsController extends Controller
             'max_typed' => $max_typed,
             'reviews' => $reviews,
             'all_tests' => $this->allTests(),
-            'country' => auth()->user()->country
+            'country' => auth()->user()->country,
+            'world_average_accuracy' => $world_average_accuracy,
+            'world_average_wpm' => $world_average_wpm,
+            'world_average_error' => $world_average_error,
         ]);
     }
 

@@ -26,6 +26,7 @@
         "dayjs": "^1.11.7",
         "framer-motion": "^10.9.1",
         "html2canvas": "^1.4.1",
-        "react-icons": "^4.8.0"
+        "react-icons": "^4.8.0",
+        "recharts": "^2.6.2"
     }
 }
