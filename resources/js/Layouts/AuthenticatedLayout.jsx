@@ -15,15 +15,12 @@ export default function Authenticated({ user, header, children }) {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                <Link href={route('dashboard')}>
+                                    <ApplicationLogo className="block fill-current text-gray-800 dark:text-gray-200" />
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Typing
-                                </NavLink>
                                 <NavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
                                     Leaderboard
                                 </NavLink>
@@ -103,9 +100,6 @@ export default function Authenticated({ user, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
-                        </ResponsiveNavLink>
                         <ResponsiveNavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
                             Leaderboard
                         </ResponsiveNavLink>
