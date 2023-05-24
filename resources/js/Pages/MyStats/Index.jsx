@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { formatDistanceToNow } from 'date-fns';
 const avatar = "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
-
+import SwitchButton from '@/Components/SwitchButton';
 export default function Index({
     auth,
     total_test,
@@ -88,6 +88,7 @@ export default function Index({
                         }
                     </div>
                 </Card>
+                <SwitchButton label="Switch to Simple" onChange={() => setOpenChart(!openChart)} className={'mb-10'} />
                 <div className='grid grid-cols-1 gap-4 text-center'>
                     {openChart &&
                         <Card className="flex flex-row justify-center mb-10">
