@@ -1,7 +1,7 @@
 import Card from '@/Components/Card';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import dayjs from 'dayjs';
+import { formatDistanceToNow } from 'date-fns';
 import React from 'react';
 import { TbWorld } from "react-icons/tb";
 
@@ -33,7 +33,7 @@ export default function Index({
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div className='flex flex-col justify-center items-center'>
                             <p className='text-primary-400 font-bold'>{user.name} {country}</p>
-                            <p className='text-lg text-slate-400'>Joined {dayjs().to(dayjs(user.created_at), 'day')} ago</p>
+                            <p className='text-lg text-slate-400'>Joined {formatDistanceToNow(new Date(user.created_at))}</p>
                             <div>
                                 {
                                     user.website && <a href={user.website} className='text-lg text-slate-400'><TbWorld /></a>
@@ -147,7 +147,7 @@ export default function Index({
                             <p>{test.typed}</p>
                             <p>{test.time}</p>
                             <p>{test.language}</p>
-                            <p>{dayjs().diff(dayjs(test.created_at), 'day')} days ago</p>
+                            <p>{formatDistanceToNow(new Date(test.created_at))}</p>
                         </Card>
                     ))}
                 </div>
