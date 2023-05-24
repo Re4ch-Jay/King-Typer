@@ -1,14 +1,11 @@
 import Card from '@/Components/Card';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-dayjs.extend(relativeTime);
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { formatDistanceToNow } from 'date-fns';
 const avatar = "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
-
+import SwitchButton from '@/Components/SwitchButton';
 export default function Index({
     auth,
     total_test,
@@ -65,7 +62,7 @@ export default function Index({
                         <img src={avatar} className='w-20 h-20 rounded-full' alt="" />
                         <div>
                             <p className='text-primary-400 font-bold'>{auth.user.name} {country}</p>
-                            <p className='text-lg text-slate-400'>Joined {dayjs().diff(dayjs(auth.user.created_at), 'day')} days</p>
+                            <p className='text-lg text-slate-400'>Joined {formatDistanceToNow(new Date(auth.user.created_at))}</p>
                         </div>
                     </div>
 
@@ -91,6 +88,7 @@ export default function Index({
                         }
                     </div>
                 </Card>
+                <SwitchButton label="Switch to Simple" onChange={() => setOpenChart(!openChart)} className={'mb-10'} />
                 <div className='grid grid-cols-1 gap-4 text-center'>
                     {openChart &&
                         <Card className="flex flex-row justify-center mb-10">
@@ -152,7 +150,7 @@ export default function Index({
                             <p>{test.typed}</p>
                             <p>{test.time}</p>
                             <p>{test.language}</p>
-                            <p>{dayjs().to(dayjs(test.created_at))}</p>
+                            <p>{formatDistanceToNow(new Date(test.created_at))}</p>
                         </Card>
                     ))}
                 </div>

@@ -28,6 +28,10 @@ class ProfileController extends Controller
         $reviews = DB::table('reviews')->where('user_id', '=', $user->id)->count('id');
         $all_tests = DB::table('typing_tests')->where('user_id', '=', $user->id)->orderByDesc("created_at")->take(10)->get();
 
+        $world_average_accuracy = DB::table('typing_tests')->avg('accuracy');
+        $world_average_wpm = DB::table('typing_tests')->avg('wpm');
+        $world_average_error = DB::table('typing_tests')->avg('error');
+
         return Inertia::render('Profile/Index', [
             'user' => $user,
             'stats' => $stats,
@@ -40,6 +44,9 @@ class ProfileController extends Controller
             'reviews' => $reviews,
             'all_tests' => $all_tests,
             'country' => $user->country,
+            'world_average_accuracy' => $world_average_accuracy,
+            'world_average_wpm' => $world_average_wpm,
+            'world_average_error' => $world_average_error,
         ]);
     }
 

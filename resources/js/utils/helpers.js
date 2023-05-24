@@ -5,7 +5,8 @@ export const isKeyboardCodeAllowed = (code) => {
     code.startsWith("Digit") ||
     code === "Backspace" ||
     code === "Space" ||
-    code === "."
+    code === "Shift" ||
+    code === "." 
   );
 };
 
