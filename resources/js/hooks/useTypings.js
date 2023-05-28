@@ -11,6 +11,7 @@ const useTypings = (enabled) => {
       if (!enabled || !isKeyboardCodeAllowed(code)) {
         return;
       }
+      console.log(key)
 
       switch (key) {
         case "Backspace":

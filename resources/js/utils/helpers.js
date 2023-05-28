@@ -6,7 +6,16 @@ export const isKeyboardCodeAllowed = (code) => {
     code === "Backspace" ||
     code === "Space" ||
     code === "Shift" ||
-    code === "." 
+    code === "Slash" ||
+    code === "Semicolon" ||
+    code === "Minus" ||
+    code === "Semicolon" ||
+    code === "Comma" ||
+    code === "Equal" ||
+    code === "Backslash" ||
+    code === "BracketLeft" ||
+    code === "BracketRight" ||
+    code === "Period"
   );
 };
 
@@ -36,7 +45,7 @@ export const formatPercentage = (percentage) => {
 };
 
 export const calculateWPM = (allTyped, timeSpent) => {
-  return (allTyped / 5 ) / (timeSpent / 60);
+  return (allTyped / 5) / (timeSpent / 60);
 }
 
 export const debug = (str) => {
