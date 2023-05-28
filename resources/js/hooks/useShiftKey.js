@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-const useShiftEnterKey = (callback) => {
+const useShiftKey = (callback, key) => {
     useEffect(() => {
         const handleKeyDown = (event) => {
-            if (event.shiftKey && event.key === 'Enter') {
+            if (event.shiftKey && event.key === key) {
                 callback();
             }
         };
@@ -16,4 +16,4 @@ const useShiftEnterKey = (callback) => {
     }, [callback]);
 };
 
-export default useShiftEnterKey;
+export default useShiftKey;

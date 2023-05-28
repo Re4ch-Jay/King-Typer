@@ -6,6 +6,7 @@ import { WordTypeModal } from "./WordTypeModal";
 import { LanguageTypeModal } from "./LanguageTypeModal";
 import { Modal } from "./WordModal";
 import { motion } from "framer-motion";
+import useShiftKey from "@/hooks/useShiftKey";
 
 const TypingMode = ({
     handleSeconds,
@@ -22,6 +23,9 @@ const TypingMode = ({
     const [word, setWord] = useState(true);
     const [number, setNumber] = useState(false);
 
+    useShiftKey(() => { setLanguageModel(!languageModel); setOpenModal(false) }, "F1")
+    useShiftKey(() => { setOpenModal(!openModal); setLanguageModel(false) }, "F2")
+
     const handleClickWord = (type) => {
         handleWordTypes(type);
         setWord(true);
@@ -37,11 +41,6 @@ const TypingMode = ({
     const handleClickTimeMode = () => {
         setTimeMode(true);
         setWordMode(false);
-    };
-
-    const handleClickWordMode = () => {
-        setWordMode(true);
-        setTimeMode(false);
     };
 
     const initial = { opacity: 0 };

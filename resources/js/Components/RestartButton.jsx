@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { MdRefresh } from "react-icons/md";
-import useShiftEnterKey from "@/hooks/useShiftEnterKey";
+import useShiftKey from "@/hooks/useShiftKey";
 
 const RestartButton = ({
   onRestart: handleRestart,
@@ -13,7 +13,7 @@ const RestartButton = ({
     handleRestart();
   };
 
-  useShiftEnterKey(handleClick)
+  useShiftKey(handleClick, "Enter")
 
   return (
     <button
