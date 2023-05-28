@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { MdRefresh } from "react-icons/md";
+import useShiftEnterKey from "@/hooks/useShiftEnterKey";
 
 const RestartButton = ({
   onRestart: handleRestart,
@@ -12,9 +13,11 @@ const RestartButton = ({
     handleRestart();
   };
 
+  useShiftEnterKey(handleClick)
+
   return (
     <button
-      tabIndex={-1} 
+      tabIndex={-1}
       ref={buttonRef}
       className={`block rounded px-8 py-2 hover:bg-slate-700/50  ${className}`}
       onClick={handleClick}
