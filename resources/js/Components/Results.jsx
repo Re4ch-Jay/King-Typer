@@ -1,13 +1,13 @@
+import React from 'react'
 import { motion } from "framer-motion";
 import { formatPercentage, calculateWPM } from "../utils/helpers";
 import html2canvas from 'html2canvas';
 import { useState, useRef } from "react";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import ConfettiExplosion from 'react-confetti-explosion';
 
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
-import { useForm, Head, Link, usePage } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import useEngine from "@/hooks/useEngine";
 
 const Results = ({
@@ -36,6 +36,7 @@ const Results = ({
   const [buttonSave, setButtonSave] = useState(true);
   const appRef = useRef(null);
   const { restart } = useEngine();
+  const [isExploding, setIsExploding] = React.useState(true);
 
   if (state !== "finish") {
     return null;
@@ -101,12 +102,14 @@ const Results = ({
           height={200}
           data={chart}
         >
+
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="# FACC15" fill="#FACC15" />
+          <Area type="monotone" dataKey="uv" stroke="#000" fill="#FACC15" />
         </AreaChart>
       </motion.div>
+      <Successfull isExploding={isExploding} />
       <motion.ul
         initial={initial}
         animate={animate}
@@ -205,3 +208,8 @@ const Results = ({
 };
 
 export default Results;
+
+function Successfull({ isExploding }) {
+
+  return <>{isExploding && <ConfettiExplosion particleCount={200} duration={3000} width={3000} />}</>;
+}

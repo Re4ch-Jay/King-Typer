@@ -88,7 +88,7 @@ export default function Index({
                         }
                     </div>
                 </Card>
-                <SwitchButton label="Switch to Simple" onChange={() => setOpenChart(!openChart)} className={'mb-10'} />
+                <SwitchButton label={openChart ? `Switch to Simple` : `Switch to Chart`} onChange={() => setOpenChart(!openChart)} className={'mb-10'} />
                 <div className='grid grid-cols-1 gap-4 text-center'>
                     {openChart &&
                         <Card className="flex flex-row justify-center mb-10">
