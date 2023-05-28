@@ -54,7 +54,7 @@ export default function Dashboard({ auth }) {
             className={"mx-auto mt-10 text-slate-500"}
             onRestart={restart}
           />
-          <HintText />
+          <HintText state={state} />
         </section>
       </main>
     </AuthenticatedLayout>
@@ -81,12 +81,19 @@ const NumberOfWords = ({ numberOfWords }) => {
   return <h2 className="text-primary-400 text-xl font-medium">{numberOfWords} words</h2>;
 };
 
-const HintText = () => {
+const HintText = ({ state }) => {
   return (
     <div className='flex flex-col text-grey-50 text-sm my-10'>
       <p>Shift + Enter - restart test</p>
-      <p>Shift + F1 - open languages</p>
-      <p>Shift + F2 - open custom words</p>
+      {state !== "finish" &&
+        (
+          <>
+            <p>Shift + F1 - open languages</p>
+            <p>Shift + F2 - open custom words</p>
+          </>
+        )
+      }
+
     </div>
   )
 }
