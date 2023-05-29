@@ -6,11 +6,9 @@ import { useState, useRef } from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Successfull from './Successfull';
 
-import PrimaryButton from '@/Components/PrimaryButton';
-import { useForm, usePage } from '@inertiajs/react';
 import useEngine from "@/hooks/useEngine";
 
-const Results = ({
+const GuestResult = ({
   state,
   typeErrors,
   accuracyPercentage,
@@ -21,19 +19,7 @@ const Results = ({
   countDownSeconds,
 }) => {
 
-  const { auth } = usePage().props;
-
-  const { data, setData, post, processing, reset, errors } = useForm({
-    wpm: '',
-    accuracy: '',
-    error: '',
-    typed: '',
-    time: '',
-    language: '',
-  });
-
   const [screenshot, setScreenshot] = useState(null);
-  const [buttonSave, setButtonSave] = useState(true);
   const appRef = useRef(null);
   const { restart } = useEngine();
   const [isExploding, setIsExploding] = React.useState(true);
@@ -44,21 +30,6 @@ const Results = ({
 
   const initial = { opacity: 0 };
   const animate = { opacity: 1 };
-
-  const submit = (e) => {
-    e.preventDefault();
-    data.wpm = calculateWPM(total, countDownSeconds).toFixed(0);
-    data.accuracy = formatPercentage(accuracyPercentage);
-    data.error = typeErrors;
-    data.time = countDownSeconds;
-    data.typed = total;
-    data.language = wordType;
-    post(route('typing.store'), { onSuccess: () => reset() });
-    setButtonSave(false);
-    restart();
-    window.location.href = "/dashboard";
-    setButtonSave(true);
-  };
 
   const takeScreenshot = () => {
     html2canvas(appRef.current).then(canvas => {
@@ -174,25 +145,6 @@ const Results = ({
             </motion.li>
           </div>
         </div>
-        {!auth.user && (
-          <motion.a
-            href="/register"
-            initial={initial}
-            animate={animate}
-            transition={{ duration: 0.3, delay: 3.4 }}
-            className="text-slate-400 text-lg cursor-pointer hover:underline"
-          >
-            Sign In To Save Result
-          </motion.a>
-        )}
-
-        {buttonSave ? (
-          <form onSubmit={submit}>
-            <PrimaryButton className="mt-4" disabled={processing}>Save</PrimaryButton>
-          </form>
-        ) : (
-          <div className="text-lg">Saved</div>
-        )}
 
         <motion.li
           initial={initial}
@@ -207,5 +159,5 @@ const Results = ({
   );
 };
 
-export default Results;
+export default GuestResult;
 

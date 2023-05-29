@@ -46,7 +46,6 @@ export default function Dashboard({ auth }) {
             total={totalTyped}
             wordType={wordType}
             numberOfWords={numberOfWords}
-            auth={auth}
             countDownSeconds={countDownSeconds}
           />
 
