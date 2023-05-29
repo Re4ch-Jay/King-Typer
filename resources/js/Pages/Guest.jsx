@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GeneratedWords from '@/Components/GeneratedWords';
 import RestartButton from "@/Components/RestartButton";
 import TypingMode from "@/Components/TypingMode";
@@ -7,12 +7,14 @@ import useEngine from '@/hooks/useEngine';
 import { calculateAccuracyPercentage } from "@/utils/helpers";
 import { Head } from '@inertiajs/react';
 import GuestResult from '@/Components/GuestResults';
+import GuestMainLayout from '@/Layouts/GuestMainLayout';
 
 const Guest = () => {
     const { words, typed, timeLeft, errors, state, restart, totalTyped, handleSeconds, handleNumberOfWords, handleWordTypes, wordType, numberOfWords, countDownSeconds } =
         useEngine();
+
     return (
-        <>
+        <GuestMainLayout>
             <Head title='Typing Guest' />
             <main>
                 <section>
@@ -53,7 +55,7 @@ const Guest = () => {
                     <HintText state={state} />
                 </section>
             </main>
-        </>
+        </GuestMainLayout>
     )
 }
 

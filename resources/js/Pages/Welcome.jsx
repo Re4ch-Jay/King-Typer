@@ -1,4 +1,5 @@
 import { Link, Head } from '@inertiajs/react';
+import Index from './Info/Index';
 
 export default function Welcome() {
 

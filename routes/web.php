@@ -38,15 +38,15 @@ Route::get('/guest', function () {
     return Inertia::render('Guest');
 })->middleware(['guest'])->name('guest');
 
-Route::get('/info', [InfoController::class, 'index'])->name('info.index');
+Route::get('/info', [InfoController::class, 'index'])->middleware(['auth', 'verified'])->name('info.index');
 
 Route::post('/typing', [TypingTestController::class, 'store'])->middleware(['auth', 'verified'])->name('typing.store');
 
-Route::get('/leaderboard/{time}', [LeaderboardController::class, 'index'])->name('leaderboard.index');
+Route::get('/leaderboard/{time}', [LeaderboardController::class, 'index'])->middleware(['auth', 'verified'])->name('leaderboard.index');
 
-Route::get('/mystats', [MyStatsController::class, 'index'])->name('mystats.index');
+Route::get('/mystats', [MyStatsController::class, 'index'])->middleware(['auth', 'verified'])->name('mystats.index');
 
-Route::get('/profile/{user:name}', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{user:name}', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('profile.index');
 
 Route::resource('reviews', ReviewController::class)
     ->only(['index', 'store', 'update', 'destroy'])
