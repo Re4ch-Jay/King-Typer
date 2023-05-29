@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
     const languageOptions = [
@@ -25,8 +26,16 @@ export const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
         { range: 21, displays: "khmer" },
     ];
 
+    const initial = { opacity: 0 };
+    const animate = { opacity: 1 };
+    const exit = { opacity: 0 }
+
     return (
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <motion.div
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            className="fixed inset-0 z-10 overflow-y-auto">
             <div
                 className="fixed inset-0 w-full h-full bg-black opacity-40"
                 onClick={() => setLanguageModel(false)}
@@ -43,6 +52,6 @@ export const LanguageTypeModal = ({ setLanguageModel, handleWordTypes }) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

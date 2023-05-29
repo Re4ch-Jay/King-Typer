@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
 
@@ -40,9 +41,15 @@ export const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
         { range: 35, displays: "spanishQuote" },
         { range: 36, displays: "swedishQuote" }
     ];
-
+    const initial = { opacity: 0 };
+    const animate = { opacity: 1 };
+    const exit = { opacity: 0 }
     return (
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <motion.div
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            className="fixed inset-0 z-10 overflow-y-auto">
             <div
                 className="fixed inset-0 w-full h-full bg-black opacity-40"
                 onClick={() => setOpenModal(false)}
@@ -59,6 +66,6 @@ export const WordTypeModal = ({ setOpenModal, handleWordTypes }) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
