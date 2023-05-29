@@ -36,7 +36,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/guest', function () {
     return Inertia::render('Guest');
-})->name('guest');
+})->middleware(['guest'])->name('guest');
 
 Route::get('/info', [InfoController::class, 'index'])->name('info.index');
 
