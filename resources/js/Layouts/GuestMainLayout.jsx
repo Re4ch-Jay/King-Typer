@@ -19,20 +19,9 @@ function GuestMainLayout({ children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
-                                <NavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
-                                    Leaderboard
-                                </NavLink>
-                                <NavLink href={route('reviews.index')} active={route().current('reviews.index')}>
-                                    Review
-                                </NavLink>
-                                <NavLink href={route('info.index')} active={route().current('info.index')}>
-                                    Info
-                                </NavLink>
                                 <NavLink href="/">
                                     About
                                 </NavLink>
-
                             </div>
                         </div>
 
@@ -124,15 +113,6 @@ function GuestMainLayout({ children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href='/leaderboard/15' active={route().current('leaderboard.index')}>
-                            Leaderboard
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('reviews.index')} active={route().current('reviews.index')}>
-                            Review
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('info.index')} active={route().current('info.index')}>
-                            Info
-                        </ResponsiveNavLink>
                         <ResponsiveNavLink href="/">
                             About
                         </ResponsiveNavLink>
