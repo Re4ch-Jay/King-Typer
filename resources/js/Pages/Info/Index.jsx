@@ -1,6 +1,4 @@
 import Authenticated from '@/Layouts/AuthenticatedLayout';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import GuestMainLayout from '@/Layouts/GuestMainLayout';
 import { Head } from '@inertiajs/react';
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GeneratedWords from '@/Components/GeneratedWords';
 import RestartButton from "@/Components/RestartButton";
 import TypingMode from "@/Components/TypingMode";
