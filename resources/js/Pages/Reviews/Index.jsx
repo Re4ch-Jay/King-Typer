@@ -30,7 +30,7 @@ export default function Index({ auth, message }) {
                     <PrimaryButton className="mt-4" disabled={processing}>Post</PrimaryButton>
                 </form>
 
-                <div className="mt-6 bg-white shadow-sm rounded-lg divide-y">
+                <div className="mt-6 bg-gray-700 shadow-sm rounded-lg divide-y">
                     {message.map(review =>
                         <Review key={review.id} review={review} />
                     )}
