@@ -1,5 +1,5 @@
 import { Link, Head } from '@inertiajs/react';
-import dayjs from 'dayjs';
+import { formatDistanceToNow } from 'date-fns';
 
 export default function Welcome({message, rating}) {
 
@@ -111,7 +111,7 @@ export default function Welcome({message, rating}) {
                                 <div>
                                     <div>
                                         <span className="text-white font-bold">{review.user.name}</span>
-                                        <small className="ml-2 text-sm text-white">{dayjs(review.created_at).fromNow()}</small>
+                                        <small className="ml-2 text-sm text-white">{formatDistanceToNow(new Date(review.created_at))}</small>
                                     </div>
                                     <span className="text-white font-bold">{review.rating}</span>
                                     <p className="mt-4 text-lg text-white">{review.message}</p>
