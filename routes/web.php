@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Review;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -27,6 +28,8 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'message' => Review::with('user:id,name')->latest()->take(10)->get(),
+        'rating' => Review::with('user:id,name')->latest()->take(10)->get(),
     ]);
 });
 
