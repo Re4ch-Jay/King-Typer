@@ -16,7 +16,8 @@ class ReviewController extends Controller
     {
 
         return Inertia::render('Reviews/Index', [
-            'message' => Review::with('user:id,name')->latest()->get(),
+            'message' => Review::with('user:id,name')->latest()->take(10)->get(),
+            'rating' => Review::with('user:id,name')->latest()->take(10)->get(),
         ]);
     }
 
@@ -35,6 +36,7 @@ class ReviewController extends Controller
     {
         $validated = $request->validate([
             'message' => 'required|string|max:255',
+            'rating' => 'required',
         ]);
 
         $request->user()->reviews()->create($validated);
@@ -68,6 +70,7 @@ class ReviewController extends Controller
 
         $validated = $request->validate([
             'message' => 'required|string|max:255',
+            'rating' => 'required',
         ]);
 
         $review->update($validated);

@@ -12,6 +12,7 @@ class Review extends Model
 
     protected $fillable = [
         'message',
+        'rating'
     ];
 
     public function user(): BelongsTo
