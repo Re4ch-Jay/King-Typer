@@ -1,6 +1,7 @@
 import { Link, Head } from '@inertiajs/react';
+import dayjs from 'dayjs';
 
-export default function Welcome() {
+export default function Welcome({message, rating}) {
 
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
@@ -97,6 +98,29 @@ export default function Welcome() {
                 <p className="mb-8 text-lg text-center font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
                     Typing can be fun. It is a skill that can be used for a variety of purposes, such as writing, creating content, and playing games. Typing can also be a great way to relieve stress and improve your mental focus. If you are looking for a new skill to learn, or if you want to improve your typing speed and accuracy, I encourage you to give typing a try. You may be surprised at how much fun it can be.
                 </p>
+                <button className='text-6xl' onClick={() => scrollToSection("section6")}>👇</button>
+            </section>
+            
+            <section id='section6' className='bg-white dark:bg-gray-900'>
+                <h1 className="text-4xl text-primary-400 font-bold my-10">Latest Reviews</h1>
+                <div className="my-6 bg-gray-700 shadow-sm rounded-lg divide-y px-20">
+                    {message.map(review =>
+                        <div className="rounded-md p-6 flex space-x-2 px-20">
+                        <div className="flex-1">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <div>
+                                        <span className="text-white font-bold">{review.user.name}</span>
+                                        <small className="ml-2 text-sm text-white">{dayjs(review.created_at).fromNow()}</small>
+                                    </div>
+                                    <span className="text-white font-bold">{review.rating}</span>
+                                    <p className="mt-4 text-lg text-white">{review.message}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+                </div>
                 <button className='text-6xl' onClick={() => scrollToSection("section1")}>☝</button>
             </section>
 
