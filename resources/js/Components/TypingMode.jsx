@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { TbWorld } from "react-icons/tb";
 import { BiTimeFive } from "react-icons/bi";
 import Card from "./Card";
@@ -40,7 +40,7 @@ const TypingMode = ({
 
     const handleClickTimeMode = () => {
         setTimeMode(true);
-        setWordMode(false);
+        // setWordMode(false);
     };
 
     const initial = { opacity: 0 };
@@ -108,6 +108,12 @@ const TypingMode = ({
                         >
                             60s
                         </button>
+                        <button
+                            onClick={() => handleSeconds(120)}
+                            className="text-slate-500 hover:text-gray-800 cursor-pointer"
+                        >
+                            120s
+                        </button>
                     </>
                 )}
 
@@ -117,7 +123,7 @@ const TypingMode = ({
                     <LanguageTypeModal setLanguageModel={setLanguageModel} handleWordTypes={handleWordTypes} />
                 )}
 
-                {customNumberOfWordsModal && <CusomNumberWord setCustomNumberOfWordsModal={setCustomNumberOfWordsModal} />}
+                {/* {customNumberOfWordsModal && <CusomNumberWord setCustomNumberOfWordsModal={setCustomNumberOfWordsModal} />} */}
 
                 {customTimeModal && <CustomTimeModal setCustomTimeModal={setCustomTimeModal} />}
             </Card>
@@ -128,15 +134,16 @@ const TypingMode = ({
 export default TypingMode;
 
 function CustomTimeModal({ setCustomTimeModal }) {
+    const inputRef = useRef(null);
+
     return (
-        <Modal onClick={() => setCustomTimeModal(false)}>
+        <Modal onClick={() => setCustomTimeModal(true)}>
             <div className="flex justify-between gap-2">
-                <label htmlFor="">
+                <label>
                     Custom Time Count
                 </label>
-                <input type="text" />
+                <input ref={inputRef} autoFocus />
             </div>
         </Modal>
     )
 }
-

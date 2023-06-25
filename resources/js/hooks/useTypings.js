@@ -37,6 +37,7 @@ const useTypings = (enabled) => {
     totalTyped.current = 0;
   }, []);
 
+
   useEffect(() => {
     window.addEventListener("keydown", keydownHandler);
     return () => {

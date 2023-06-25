@@ -1,7 +1,7 @@
 import { Link, Head } from '@inertiajs/react';
 import { formatDistanceToNow } from 'date-fns';
 
-export default function Welcome({message, rating}) {
+export default function Welcome({ message, rating }) {
 
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
@@ -15,10 +15,10 @@ export default function Welcome({message, rating}) {
             <Head title="Welcome" />
             <section id="section1" className="bg-white dark:bg-gray-900">
                 <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-                    <a href="#" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
-                        <span className="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span className="text-sm font-medium">Flowbite is out! See what's new</span>
+                    <div onClick={() => scrollToSection("section2")} className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
+                        <span className="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span className="text-sm font-medium">See what's new</span>
                         <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                    </a>
+                    </div>
                     <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">King-Typer</h1>
                     <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Start your typing test today and see how fast you can type!</p>
                     <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
@@ -100,25 +100,25 @@ export default function Welcome({message, rating}) {
                 </p>
                 <button className='text-6xl' onClick={() => scrollToSection("section6")}>👇</button>
             </section>
-            
+
             <section id='section6' className='bg-white dark:bg-gray-900'>
                 <h1 className="text-4xl text-primary-400 font-bold my-10">Latest Reviews</h1>
                 <div className="my-6 bg-gray-700 shadow-sm rounded-lg divide-y px-20">
                     {message.map(review =>
                         <div className="rounded-md p-6 flex space-x-2 px-20">
-                        <div className="flex-1">
-                            <div className="flex justify-between items-center">
-                                <div>
+                            <div className="flex-1">
+                                <div className="flex justify-between items-center">
                                     <div>
-                                        <span className="text-white font-bold">{review.user.name}</span>
-                                        <small className="ml-2 text-sm text-white">{formatDistanceToNow(new Date(review.created_at))}</small>
+                                        <div>
+                                            <span className="text-white font-bold">{review.user.name}</span>
+                                            <small className="ml-2 text-sm text-white">{formatDistanceToNow(new Date(review.created_at))}</small>
+                                        </div>
+                                        <span className="text-white font-bold">{review.rating}</span>
+                                        <p className="mt-4 text-lg text-white">{review.message}</p>
                                     </div>
-                                    <span className="text-white font-bold">{review.rating}</span>
-                                    <p className="mt-4 text-lg text-white">{review.message}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     )}
                 </div>
                 <button className='text-6xl' onClick={() => scrollToSection("section1")}>☝</button>
