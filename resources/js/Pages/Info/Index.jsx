@@ -56,7 +56,10 @@ export default function Index({
 
     return (
         <Authenticated user={auth.user}>
-            <Head title="Info" />
+            <Head title="Info" >
+                <link rel="icon" type="image/x-icon" href="https://github.com/Re4ch-Jay/King-Typer/blob/main/public/images/king-typer.png?raw=true" />
+                <meta head-key="description" name="description" content="Start your typing test today and see how fast you can type!" />
+            </Head>
             <div className='my-20'>
                 <p className='text-center text-gray-400 text-lg font-medium'>
                     Created with love by King-Typer Team.

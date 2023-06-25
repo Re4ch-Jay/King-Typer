@@ -15,7 +15,10 @@ const Guest = () => {
 
     return (
         <GuestMainLayout>
-            <Head title='Typing Guest' />
+            <Head title='Typing Guest' >
+                <link rel="icon" type="image/x-icon" href="https://github.com/Re4ch-Jay/King-Typer/blob/main/public/images/king-typer.png?raw=true" />
+                <meta head-key="description" name="description" content="Start your typing test today and see how fast you can type!" />
+            </Head>
             <main>
                 <section>
                     {state !== "finish" && (

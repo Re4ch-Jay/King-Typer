@@ -1,5 +1,6 @@
 import { Link, Head } from '@inertiajs/react';
 import { formatDistanceToNow } from 'date-fns';
+import React from 'react';
 
 export default function Welcome({ message, rating }) {
 
@@ -12,7 +13,10 @@ export default function Welcome({ message, rating }) {
 
     return (
         <>
-            <Head title="Welcome" />
+            <Head title="Welcome" >
+                <link rel="icon" type="image/x-icon" href="https://github.com/Re4ch-Jay/King-Typer/blob/main/public/images/king-typer.png?raw=true" />
+                <meta head-key="description" name="description" content="Start your typing test today and see how fast you can type!" />
+            </Head>
             <section id="section1" className="bg-white dark:bg-gray-900">
                 <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                     <div onClick={() => scrollToSection("section2")} className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
@@ -27,7 +31,7 @@ export default function Welcome({ message, rating }) {
                         </Link>
                         <Link href="/dashboard" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
 
-                            Sign Up
+                            Login
                         </Link>
                     </div>
                     <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">

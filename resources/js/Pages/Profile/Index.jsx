@@ -59,7 +59,10 @@ export default function Index({
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title={`${user.name} Stats`} />
+            <Head title={`${user.name} Stats`} >
+                <link rel="icon" type="image/x-icon" href="https://github.com/Re4ch-Jay/King-Typer/blob/main/public/images/king-typer.png?raw=true" />
+                <meta head-key="description" name="description" content="Start your typing test today and see how fast you can type!" />
+            </Head>
 
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
                 <h1 className="text-2xl text-primary-400 font-bold mb-10">{user.name} Stats</h1>
