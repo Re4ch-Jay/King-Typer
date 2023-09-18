@@ -40,7 +40,7 @@ class TypingTestController extends Controller
 
         $request->user()->tests()->create($validated);
 
-        return redirect('/dashboard');
+        return to_route('dashboard');
     }
 
     /**

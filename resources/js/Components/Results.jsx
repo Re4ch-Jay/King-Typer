@@ -56,7 +56,6 @@ const Results = ({
     post(route('typing.store'), { onSuccess: () => reset() });
     setButtonSave(false);
     restart();
-    window.location.href = "/dashboard";
     setButtonSave(true);
   };
 
